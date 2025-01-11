@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-color;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  @apply text-primary;
+}
+
+a, p, span, li {
+  @apply text-secondary;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// Reusable classes
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: auto;
+}
