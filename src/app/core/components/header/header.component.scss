@@ -1,0 +1,55 @@
+:host {
+  .non-mobile-navigation {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .mobile-menu {
+    @apply bg-bg-color;
+    top: 76px;
+    width: 0;
+    opacity: 0;
+    height: calc(100vh - 76px);
+    z-index: -1;
+    transition: all .5s;
+
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+
+    &.mobile-menu-active {
+      width: 100%;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  .mobile-menu-icon {
+    width: 30px;
+    height: 20px;
+
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+
+    > div {
+      height: 2px;
+    }
+
+    &.open > div {
+      @apply bg-primary;
+      transition: width .4s ease-in-out;
+
+      &:nth-child(2) {
+        width: 75%;
+      }
+      &:nth-child(3) {
+        width: 50%;
+      }
+    }
+  }
+}

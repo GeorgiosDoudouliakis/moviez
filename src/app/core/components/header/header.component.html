@@ -1,0 +1,44 @@
+<header class="py-4 bg-lighter-bg-color">
+    <nav class="flex justify-between items-center wrapper">
+        <h1 class="text-2xl font-bold tracking-widest">
+            <a routerLink="/" class="text-bg-color py-1 px-2 bg-primary rounded-sm">Moviez</a>
+        </h1>
+
+        <ul class="non-mobile-navigation">
+            <li class="mr-2">
+                <a routerLink="movies" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Movies</a>
+            </li>
+            <li class="mr-2">
+                <a routerLink="tv-series" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Tv Series</a>
+            </li>
+            <li>
+                <a routerLink="actors" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Actors</a>
+            </li>
+        </ul>
+
+        <div class="fixed left-0 flex flex-col justify-center items-center mobile-menu"
+             [ngClass]="{ 'mobile-menu-active': isMobileMenuActive() }">
+            <ul class="flex flex-col items-center">
+                <li class="mb-2">
+                    <a routerLink="movies" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                       (click)="handleMobileMenuVisibility()">Movies</a>
+                </li>
+                <li class="mb-2">
+                    <a routerLink="tv-series" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                       (click)="handleMobileMenuVisibility()">Tv Series</a>
+                </li>
+                <li>
+                    <a routerLink="actors" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                       (click)="handleMobileMenuVisibility()">Actors</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mobile-menu-icon flex flex-col justify-between cursor-pointer"
+             [ngClass]="{ 'open': isMobileMenuActive() }" (click)="handleMobileMenuVisibility()">
+            <div class="w-full bg-secondary"></div>
+            <div class="w-full bg-secondary"></div>
+            <div class="w-full bg-secondary"></div>
+        </div>
+    </nav>
+</header>
