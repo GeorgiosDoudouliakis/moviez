@@ -1,0 +1,16 @@
+<div class="flex mb-6 cursor-pointer relative rounded-xl bg-card-bg card-container"
+     [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
+     [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
+    <div class="img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"
+         [ngStyle]="{ width: image()?.width + 'px' }">
+        @if(image()?.src) {
+            <img class="responsive-img rounded-t-xl" [src]="image().src" [alt]="image()?.alt">
+        } @else {
+            <img class="responsive-img rounded-t-xl" src="/assets/no_image_available.jpg" alt="No image available">
+        }
+    </div>
+    <div class="flex flex-col p-4 grow-0 card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
+        <h3 class="mb-2" [ngClass]="{ 'text-center': direction() === 'vertical' }">{{ name() }}</h3>
+        <ng-content></ng-content>
+    </div>
+</div>
