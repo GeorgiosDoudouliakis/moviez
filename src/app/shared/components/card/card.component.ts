@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { NgClass, NgStyle } from "@angular/common";
 import { mapImagePath } from "@core/helpers/map-image-path.helper";
-import { CardImage } from "../../interfaces/card-image.interface";
+import { CardImage } from "./interface/card-image.interface";
 
 @Component({
   selector: 'app-card',
