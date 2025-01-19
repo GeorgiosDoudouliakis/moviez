@@ -18,6 +18,15 @@
     &::-webkit-scrollbar-thumb {
       background: var(--primary-color);
     }
+
+    .item-container {
+      width: 185px;
+      height: 100%;
+
+      > .img-container {
+        height: 278px;
+      }
+    }
   }
 
   .loader-container {
