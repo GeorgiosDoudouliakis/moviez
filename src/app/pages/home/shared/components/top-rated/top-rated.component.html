@@ -1,0 +1,18 @@
+<div class="py-12 wrapper">
+    <div class="flex justify-between items-center mb-10">
+        <h2 class="text-lg text-secondary">Top Rated {{ type() }}</h2>
+        <a class="btn-secondary" [routerLink]="showAllPath()">Show All</a>
+    </div>
+
+    @if(!loading) {
+        <div class="flex gap-x-6 justify-between overflow-x-auto w-full top-rated-items-container">
+            @for(item of items(); track item.id) {
+                <app-top-rated-item [item]="item" (click)="goToItem(item)" />
+            }
+        </div>
+    } @else {
+        <div class="flex justify-center items-center loader-container">
+            <app-loader/>
+        </div>
+    }
+</div>

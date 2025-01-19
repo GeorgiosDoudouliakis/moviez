@@ -1,0 +1,10 @@
+<div class="relative shrink-0 cursor-pointer item-container">
+    <span class="vote">{{ item().rate }}</span>
+    <div class="img-container">
+        <img class="responsive-img" [src]="item().image" [alt]="item().title + 'poster'" width="185" height="278">
+    </div>
+    <div class="p-2">
+        <h3 class="font-bold text-base mb-1">{{ item().title }}</h3>
+        <span>{{ item().releaseDate }}</span>
+    </div>
+</div>

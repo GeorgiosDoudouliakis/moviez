@@ -5,4 +5,5 @@ export interface TopRatedItemModel {
     rate: number;
     image: string;
     releaseDate: string;
+    path: string;
 }

@@ -1,0 +1,10 @@
+:host {
+  .item-container {
+    width: 185px;
+    height: 100%;
+
+    > .img-container {
+      height: 278px;
+    }
+  }
+}
