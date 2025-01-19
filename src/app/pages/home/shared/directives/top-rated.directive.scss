@@ -1,22 +1,17 @@
 :host {
   .top-rated-items-container {
-    height: 410px;
+    min-height: 430px;
 
     &::-webkit-scrollbar {
       height: 8px;
     }
 
-    &::-webkit-scrollbar-track,
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-    }
-
     &::-webkit-scrollbar-track {
-      background: var(--secondary-color);
+      @apply bg-secondary;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--primary-color);
+      @apply bg-primary;
     }
 
     .item-container {
