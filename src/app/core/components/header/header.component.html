@@ -6,13 +6,13 @@
 
         <ul class="non-mobile-navigation">
             <li class="mr-2">
-                <a routerLink="movies" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Movies</a>
+                <a routerLink="movies" routerLinkActive="active" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Movies</a>
             </li>
             <li class="mr-2">
-                <a routerLink="tv-series" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Tv Series</a>
+                <a routerLink="tv-series" routerLinkActive="active" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Tv Series</a>
             </li>
             <li>
-                <a routerLink="actors" [routerLinkActive]="['text-primary', 'font-bold', 'bg-bg-color']" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Actors</a>
+                <a routerLink="actors" routerLinkActive="active" class="inline-flex text-secondary text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold">Actors</a>
             </li>
         </ul>
 
@@ -20,15 +20,15 @@
              [ngClass]="{ 'mobile-menu-active': isMobileMenuActive() }">
             <ul class="flex flex-col items-center">
                 <li class="mb-2">
-                    <a routerLink="movies" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                    <a routerLink="movies" routerLinkActive="active" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Movies</a>
                 </li>
                 <li class="mb-2">
-                    <a routerLink="tv-series" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                    <a routerLink="tv-series" routerLinkActive="active" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Tv Series</a>
                 </li>
                 <li>
-                    <a routerLink="actors" [routerLinkActive]="['text-primary', 'font-bold']" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                    <a routerLink="actors" routerLinkActive="active" class="inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Actors</a>
                 </li>
             </ul>
