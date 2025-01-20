@@ -12,5 +12,9 @@ export const routes: Routes = [
     {
         path: "tv-series",
         loadComponent: () => import("./pages/tv-series/tv-series/tv-series.component").then(c => c.TvSeriesComponent)
+    },
+    {
+        path: "actors",
+        loadComponent: () => import("./pages/actors/actors/actors.component").then(c => c.ActorsComponent)
     }
 ];
