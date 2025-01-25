@@ -52,7 +52,6 @@
     }
 
     &.open > div {
-      @apply bg-primary;
       transition: width .4s ease-in-out;
 
       &:nth-child(2) {

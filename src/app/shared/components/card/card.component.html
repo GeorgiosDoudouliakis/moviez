@@ -1,4 +1,4 @@
-<div class="flex mb-6 cursor-pointer relative rounded-xl bg-card-bg card-container"
+<div class="flex mb-6 cursor-pointer relative rounded-xl card-container"
      [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
      [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
     <div class="img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"

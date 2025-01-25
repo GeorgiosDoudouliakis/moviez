@@ -5,11 +5,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'primary': '#f3c71e',
-      'secondary': '#f9f9f9',
-      'bg-color': '#000000',
-      'lighter-bg-color': '#121212',
-      'card-bg': '#1a1a1a'
+      'primary': '#282955',
+      'secondary': '#111111',
+      'bg-color': '#ffffff'
     },
     extend: {},
   },
