@@ -1,18 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { TopRatedDirective } from "../../directives/top-rated.directive";
+import { TopRatedDirective } from "../../shared/directives/top-rated.directive";
 import { LoaderComponent } from "@shared/components/loader/loader.component";
-import { TopRatedMoviesService } from "../../../services/top-rated-movies.service";
+import { TopRatedMoviesService } from "../../services/top-rated-movies.service";
+import { TopRatedType } from "../../shared/enums/top-rated-type.enum";
 
 @Component({
   selector: 'app-top-rated-movies',
   imports: [RouterLink, LoaderComponent],
-  templateUrl: '../../directives/top-rated.directive.html',
-  styleUrl: '../../directives/top-rated.directive.scss',
+  templateUrl: '../../shared/directives/top-rated.directive.html',
+  styleUrl: '../../shared/directives/top-rated.directive.scss',
   providers: [TopRatedMoviesService]
 })
 export class TopRatedMoviesComponent extends TopRatedDirective {
-  public title: string = "Top rated movies";
+  public type: TopRatedType = TopRatedType.MOVIES;
   public showAllPath: string = "";
   protected service: TopRatedMoviesService = inject(TopRatedMoviesService);
 }

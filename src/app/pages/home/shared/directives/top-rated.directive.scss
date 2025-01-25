@@ -8,10 +8,13 @@
 
     &::-webkit-scrollbar-track {
       @apply bg-secondary;
+      border-radius: 8px;
     }
 
     &::-webkit-scrollbar-thumb {
       @apply bg-primary;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     .item-container {
