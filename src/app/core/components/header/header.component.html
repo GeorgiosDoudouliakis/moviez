@@ -16,19 +16,19 @@
             </li>
         </ul>
 
-        <div class="fixed left-0 flex flex-col justify-center items-center mobile-menu"
+        <div class="fixed left-0 flex flex-col justify-center items-center bg-primary border-bg-color border-t-2 mobile-menu"
              [ngClass]="{ 'mobile-menu-active': isMobileMenuActive() }">
             <ul class="flex flex-col items-center">
-                <li class="mb-2">
-                    <a routerLink="movies" routerLinkActive="active" class="font-semibold inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                <li class="mb-4">
+                    <a routerLink="movies" routerLinkActive="active" class="inline-flex text-bg-color text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Movies</a>
                 </li>
-                <li class="mb-2">
-                    <a routerLink="tv-series" routerLinkActive="active" class="font-semibold inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                <li class="mb-4">
+                    <a routerLink="tv-series" routerLinkActive="active" class="inline-flex text-bg-color text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Tv Series</a>
                 </li>
                 <li>
-                    <a routerLink="actors" routerLinkActive="active" class="font-semibold inline-flex text-secondary text-lg p-4 hover:text-primary hover:font-bold"
+                    <a routerLink="actors" routerLinkActive="active" class="inline-flex text-bg-color text-lg py-2 px-4 rounded hover:bg-bg-color hover:text-primary hover:font-bold"
                        (click)="handleMobileMenuVisibility()">Actors</a>
                 </li>
             </ul>

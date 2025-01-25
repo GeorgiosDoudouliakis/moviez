@@ -2,15 +2,17 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "@core/components/header/header.component";
 import { FooterComponent } from "@core/components/footer/footer.component";
+import { SearchComponent } from "@core/components/search/search.component";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
   imports: [
     RouterOutlet,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
+  templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {}

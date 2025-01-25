@@ -1,12 +1,12 @@
 :host {
+  .active {
+    @apply text-primary;
+    @apply font-bold;
+    @apply bg-bg-color;
+  }
+
   .non-mobile-navigation {
     display: none;
-
-    a.active {
-      @apply text-primary;
-      @apply font-bold;
-      @apply bg-bg-color;
-    }
 
     @media only screen and (min-width: 768px) {
       display: flex;
@@ -15,7 +15,6 @@
   }
 
   .mobile-menu {
-    @apply bg-bg-color;
     top: 64px;
     width: 0;
     opacity: 0;
@@ -27,11 +26,6 @@
       width: 100%;
       opacity: 1;
       z-index: 10;
-    }
-
-    a.active {
-      @apply text-primary;
-      @apply font-bold;
     }
 
     @media only screen and (min-width: 768px) {
