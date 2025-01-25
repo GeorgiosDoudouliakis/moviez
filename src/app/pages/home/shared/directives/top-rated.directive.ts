@@ -3,14 +3,14 @@ import { TopRatedItemModel } from "../../interfaces/top-rated-item-model.interfa
 import { TopRatedService } from "../interfaces/top-rated-service.interface";
 import { catchError, tap, throwError } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { TopRatedType } from "../enums/top-rated-type.enum";
 
 @Directive()
 export abstract class TopRatedDirective implements OnInit {
     public items: WritableSignal<TopRatedItemModel[]> = signal([]);
     public loading: WritableSignal<boolean> = signal(true);
-    public abstract type: TopRatedType;
+    public abstract title: string;
     public abstract showAllPath: string;
+    public abstract showAllLinkText: string;
     protected abstract service: TopRatedService;
     private _destroyRef = inject(DestroyRef);
 

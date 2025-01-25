@@ -5,10 +5,11 @@ import { catchError, tap, throwError } from "rxjs";
 import { PopularCelebrity } from "../../interfaces/popular-celebrities-response.interface";
 import { LoaderComponent } from "@shared/components/loader/loader.component";
 import { RouterLink } from "@angular/router";
+import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
 
 @Component({
   selector: 'app-popular-celebrities',
-  imports: [LoaderComponent, RouterLink],
+  imports: [LoaderComponent, RouterLink, SectionHeaderComponent],
   templateUrl: './popular-celebrities.component.html',
   styleUrl: './popular-celebrities.component.scss',
   providers: [PopularCelebritiesService]

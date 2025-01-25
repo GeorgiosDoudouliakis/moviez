@@ -1,12 +1,5 @@
 <div class="py-8">
-    <div class="flex justify-between items-center mb-10">
-        <h2 class="font-medium text-lg text-secondary border-l-4 border-primary py-2 px-4">
-            Top 20 rated {{ type }}
-        </h2>
-        <a class="font-medium p-2 text-bg-color bg-primary rounded-sm" [routerLink]="showAllPath">
-            View all {{ type }}
-        </a>
-    </div>
+    <app-section-header [title]="title" [showAllPath]="showAllPath" [showAllLinkText]="showAllLinkText" />
 
     @if(!loading()) {
         <div class="flex gap-x-6 justify-between overflow-x-auto w-full top-rated-items-container">
