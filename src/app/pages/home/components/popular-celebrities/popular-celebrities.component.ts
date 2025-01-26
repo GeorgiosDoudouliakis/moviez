@@ -2,7 +2,7 @@ import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/
 import { PopularCelebritiesService } from "../../services/popular-celebrities.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { catchError, tap, throwError } from "rxjs";
-import { PopularCelebrityWithPath } from "../../interfaces/popular-celebrities-response.interface";
+import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
 import { LoaderComponent } from "@shared/components/loader/loader.component";
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
 import { RouterLink } from "@angular/router";
@@ -15,7 +15,7 @@ import { RouterLink } from "@angular/router";
   providers: [PopularCelebritiesService]
 })
 export class PopularCelebritiesComponent implements OnInit {
-  public popularCelebrities: WritableSignal<PopularCelebrityWithPath[]> = signal<PopularCelebrityWithPath[]>([]);
+  public popularCelebrities: WritableSignal<PersonWithPath[]> = signal<PersonWithPath[]>([]);
   public loading: WritableSignal<boolean> = signal<boolean>(true);
 
   constructor(
@@ -25,7 +25,7 @@ export class PopularCelebritiesComponent implements OnInit {
 
   public ngOnInit(): void {
     this._popularCelebritiesService.popularCelebrities$().pipe(
-        tap((popularCelebrities: PopularCelebrityWithPath[]) => this.popularCelebrities.set(popularCelebrities)),
+        tap((popularCelebrities: PersonWithPath[]) => this.popularCelebrities.set(popularCelebrities)),
         tap(() => this.loading.set(false)),
         catchError(error => {
           this.loading.set(false);

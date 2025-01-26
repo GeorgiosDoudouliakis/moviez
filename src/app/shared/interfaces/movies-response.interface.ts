@@ -1,4 +1,5 @@
 import { BaseItem } from "./base-item.interface";
+import { BaseResponse } from "@shared/interfaces/base-response.interface";
 
 export interface Movie extends BaseItem {
     original_title: string;
@@ -6,3 +7,5 @@ export interface Movie extends BaseItem {
     title: string;
     video: boolean;
 }
+
+export type MoviesResponse = BaseResponse<Movie>;

@@ -1,6 +1,6 @@
 import { BaseResponse } from "@shared/interfaces/base-response.interface";
 
-export interface PopularCelebrity {
+export interface Person {
     adult: boolean;
     gender: number;
     id: number;
@@ -28,8 +28,8 @@ export interface PopularCelebrity {
     profile_path: string;
 }
 
-export interface PopularCelebrityWithPath extends PopularCelebrity {
+export interface PersonWithPath extends Person {
     path: string;
 }
 
-export type PopularCelebrities = BaseResponse<PopularCelebrity>;
+export type PersonsResponse = BaseResponse<PersonWithPath>;
