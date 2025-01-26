@@ -4,7 +4,6 @@ import { map, Observable } from "rxjs";
 import { TopRatedItemModel } from "../interfaces/top-rated-item-model.interface";
 import { HttpClient } from "@angular/common/http";
 import { mapVoteAverage } from "@core/helpers/map-vote-average.helper";
-import { mapImagePath } from "@core/helpers/map-image-path.helper";
 import { mapDate } from "@core/helpers/map-date.helper";
 import { TopRatedTvSeriesResponse } from "../interfaces/top-rated-tv-series.interface";
 import { TvSerie } from "@shared/interfaces/tv-serie.interface";
@@ -22,7 +21,7 @@ export class TopRatedTvSeriesService implements TopRatedService {
                     title: tvSerie.name,
                     description: tvSerie.overview,
                     rate: mapVoteAverage(tvSerie.vote_average),
-                    image: mapImagePath(185, tvSerie.poster_path),
+                    image: tvSerie.poster_path,
                     releaseDate: mapDate(tvSerie.first_air_date),
                     path: ""
                 }));

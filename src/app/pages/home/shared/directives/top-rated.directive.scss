@@ -16,13 +16,9 @@
       cursor: pointer;
     }
 
-    .item-container {
+    app-card {
       width: 185px;
       height: 100%;
-
-      > .img-container {
-        height: 278px;
-      }
     }
   }
 

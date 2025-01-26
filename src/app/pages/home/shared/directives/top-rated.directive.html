@@ -4,18 +4,9 @@
     @if(!loading()) {
         <div class="flex gap-x-6 justify-between overflow-x-auto w-full top-rated-items-container">
             @for(item of items(); track item.id) {
-                <a [routerLink]="item.path" class="inline-flex flex-col relative shrink-0 cursor-pointer item-container">
-                    <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-xl rounded-es-xl">
-                        {{ item.rate }}
-                    </span>
-                    <div class="img-container">
-                        <img class="rounded-t-xl responsive-img" [src]="item.image" [alt]="item.title + 'poster'" width="185" height="278">
-                    </div>
-                    <div class="p-4 rounded-b-xl">
-                        <h3 class="font-bold text-base mb-1">{{ item.title }}</h3>
-                        <span>{{ item.releaseDate }}</span>
-                    </div>
-                </a>
+                <app-card [title]="item.title" [image]="{ src: item.image, alt: item.title + 'poster', width: 185 }" [imageContent]="item.rate.toString()" [cardLink]="item.path">
+                    <span description class="text-secondary">{{ item.releaseDate }}</span>
+                </app-card>
             }
         </div>
     } @else {

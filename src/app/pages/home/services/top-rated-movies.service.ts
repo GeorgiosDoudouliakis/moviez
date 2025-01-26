@@ -6,7 +6,6 @@ import { TopRatedItemModel } from "../interfaces/top-rated-item-model.interface"
 import { HttpClient } from "@angular/common/http";
 import { Movie } from "@shared/interfaces/movie.interface";
 import { mapVoteAverage } from "@core/helpers/map-vote-average.helper";
-import { mapImagePath } from "@core/helpers/map-image-path.helper";
 import { mapDate } from "@core/helpers/map-date.helper";
 
 @Injectable()
@@ -22,7 +21,7 @@ export class TopRatedMoviesService implements TopRatedService {
                     title: movie.title,
                     description: movie.overview,
                     rate: mapVoteAverage(movie.vote_average),
-                    image: mapImagePath(185, movie.poster_path),
+                    image: movie.poster_path,
                     releaseDate: mapDate(movie.release_date),
                     path: ""
                 }));

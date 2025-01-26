@@ -1,13 +1,5 @@
 :host {
-  .card-container {
-    transition: box-shadow .5s;
-
-    &:hover {
-      box-shadow: 0 0 10px 5px var(--border-color);
-    }
-
-    > .img-container.height-when-vertical {
-      height: 278px;
-    }
+  .card-container > .img-container.height-when-vertical {
+    height: 278px;
   }
 }
