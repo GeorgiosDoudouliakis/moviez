@@ -19,13 +19,11 @@
     width: 0;
     opacity: 0;
     height: calc(100vh - 64px);
-    z-index: -1;
     transition: all .5s;
 
     &.mobile-menu-active {
       width: 100%;
       opacity: 1;
-      z-index: 10;
     }
 
     @media only screen and (min-width: 768px) {
