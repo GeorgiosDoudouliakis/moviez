@@ -28,4 +28,8 @@ export interface PopularCelebrity {
     profile_path: string;
 }
 
+export interface PopularCelebrityWithPath extends PopularCelebrity {
+    path: string;
+}
+
 export type PopularCelebrities = BaseResponse<PopularCelebrity>;

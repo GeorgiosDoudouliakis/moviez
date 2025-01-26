@@ -7,6 +7,7 @@ import { mapVoteAverage } from "@core/helpers/map-vote-average.helper";
 import { mapDate } from "@core/helpers/map-date.helper";
 import { TopRatedTvSeriesResponse } from "../interfaces/top-rated-tv-series.interface";
 import { TvSerie } from "@shared/interfaces/tv-serie.interface";
+import { EncodingUtilities } from "@core/utilities/encoding.utilities";
 
 @Injectable()
 export class TopRatedTvSeriesService implements TopRatedService {
@@ -23,7 +24,7 @@ export class TopRatedTvSeriesService implements TopRatedService {
                     rate: mapVoteAverage(tvSerie.vote_average),
                     image: tvSerie.poster_path,
                     releaseDate: mapDate(tvSerie.first_air_date),
-                    path: ""
+                    path: `/tv-series/${EncodingUtilities.encodeIdNameParam(tvSerie.id, tvSerie.name)}`
                 }));
             })
         );

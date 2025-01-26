@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
 import { Movie } from "@shared/interfaces/movie.interface";
 import { mapVoteAverage } from "@core/helpers/map-vote-average.helper";
 import { mapDate } from "@core/helpers/map-date.helper";
+import { EncodingUtilities } from "@core/utilities/encoding.utilities";
 
 @Injectable()
 export class TopRatedMoviesService implements TopRatedService {
@@ -23,7 +24,7 @@ export class TopRatedMoviesService implements TopRatedService {
                     rate: mapVoteAverage(movie.vote_average),
                     image: movie.poster_path,
                     releaseDate: mapDate(movie.release_date),
-                    path: ""
+                    path: `/movies/${EncodingUtilities.encodeIdNameParam(movie.id, movie.title)}`
                 }));
             })
         )
