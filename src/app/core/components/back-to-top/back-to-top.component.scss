@@ -1,0 +1,7 @@
+:host {
+  button {
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top .8s ease-in-out;
+  }
+}

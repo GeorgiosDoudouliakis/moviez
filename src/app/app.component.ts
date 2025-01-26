@@ -3,6 +3,7 @@ import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "@core/components/header/header.component";
 import { FooterComponent } from "@core/components/footer/footer.component";
 import { SearchComponent } from "@core/components/search/search.component";
+import { BackToTopComponent } from "@core/components/back-to-top/back-to-top.component";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { SearchComponent } from "@core/components/search/search.component";
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    BackToTopComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
