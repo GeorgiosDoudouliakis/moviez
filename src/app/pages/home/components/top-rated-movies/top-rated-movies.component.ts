@@ -13,7 +13,7 @@ import { CardComponent } from "@shared/components/card/card.component";
   providers: [TopRatedMoviesService]
 })
 export class TopRatedMoviesComponent extends TopRatedDirective {
-  public title: string = "Top 20 rated movies";
+  public title: string = "Top rated movies";
   public showAllPath: string = "movies";
   public showAllLinkText: string = "View all movies";
   protected service: TopRatedMoviesService = inject(TopRatedMoviesService);

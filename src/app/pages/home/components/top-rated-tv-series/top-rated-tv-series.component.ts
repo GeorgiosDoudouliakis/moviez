@@ -13,7 +13,7 @@ import { CardComponent } from "@shared/components/card/card.component";
   providers: [TopRatedTvSeriesService]
 })
 export class TopRatedTvSeriesComponent extends TopRatedDirective {
-  public title: string = "Top 20 rated tv series";
+  public title: string = "Top rated tv series";
   public showAllPath: string = "tv-series";
   public showAllLinkText: string = "View all tv series";
   protected service: TopRatedTvSeriesService = inject(TopRatedTvSeriesService);
