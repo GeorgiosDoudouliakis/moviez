@@ -5,13 +5,12 @@ import { catchError, tap, throwError } from "rxjs";
 import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
 import { LoaderComponent } from "@shared/components/loader/loader.component";
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
-import { RouterLink } from "@angular/router";
+import { PersonComponent } from "@shared/components/person/person.component";
 
 @Component({
   selector: 'app-popular-celebrities',
-  imports: [LoaderComponent, SectionHeaderComponent, RouterLink],
+  imports: [LoaderComponent, SectionHeaderComponent, PersonComponent],
   templateUrl: './popular-celebrities.component.html',
-  styleUrl: './popular-celebrities.component.scss',
   providers: [PopularCelebritiesService]
 })
 export class PopularCelebritiesComponent implements OnInit {

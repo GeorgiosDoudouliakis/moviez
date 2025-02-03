@@ -1,0 +1,6 @@
+<a class="inline-flex flex-col items-center cursor-pointer person" [routerLink]="person().path">
+    <div class="mb-4 person-img-container">
+        <img class="rounded-full responsive-img" [src]="person().profile_path" [alt]="person().name" width="185" height="185">
+    </div>
+    <span class="font-semibold">{{ person().name }}</span>
+</a>
