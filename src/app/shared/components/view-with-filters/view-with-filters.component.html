@@ -1,0 +1,8 @@
+<div class="flex">
+  @for(tab of tabs(); track tab.id) {
+    <a class="flex-1 font-semibold text-base text-center p-4 text-secondary cursor-pointer" routerLink="./{{ tab.path }}" routerLinkActive="active">{{ tab.name }}</a>
+  }
+</div>
+<div class="py-8">
+  <router-outlet/>
+</div>

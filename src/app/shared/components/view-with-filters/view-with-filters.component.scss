@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  a.active {
+    @apply border-primary;
+    @apply rounded-br-md;
+    @apply rounded-bl-md;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+  }
+}
