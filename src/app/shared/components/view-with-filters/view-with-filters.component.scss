@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
 
+  a {
+    @apply border-darker-secondary;
+    border-bottom-width: 1px;
+  }
+
   a.active {
     @apply border-primary;
-    @apply rounded-br-md;
-    @apply rounded-bl-md;
-    border-bottom-width: 1px;
-    border-right-width: 1px;
-    border-left-width: 1px;
   }
 }

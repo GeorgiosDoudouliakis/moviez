@@ -1,8 +1,11 @@
 :host {
+  header {
+    border-bottom-width: 1px;
+  }
+
   .active {
     @apply text-primary;
     @apply font-bold;
-    @apply bg-bg-color;
   }
 
   .non-mobile-navigation {
@@ -15,10 +18,10 @@
   }
 
   .mobile-menu {
-    top: 64px;
+    top: 82px;
     width: 0;
     opacity: 0;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 82px);
     transition: all .5s;
 
     &.mobile-menu-active {

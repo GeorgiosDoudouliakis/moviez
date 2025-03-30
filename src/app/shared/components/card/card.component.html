@@ -12,7 +12,7 @@
             <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-xl rounded-es-xl">{{ imageContent() }}</span>
         </div>
         <div class="flex flex-col p-4 grow-0 card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
-            <span class="font-bold text-base text-primary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
+            <span class="font-bold text-base text-secondary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
             <ng-content select="[description]"></ng-content>
         </div>
     </a>
@@ -30,7 +30,7 @@
             <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-xl rounded-es-xl">{{ imageContent() }}</span>
         </div>
         <div class="flex flex-col p-4 grow-0 card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
-            <span class="font-bold text-base text-primary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
+            <span class="font-bold text-base text-secondary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
             <ng-content select="[description]"></ng-content>
         </div>
     </div>
