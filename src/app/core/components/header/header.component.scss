@@ -3,9 +3,17 @@
     border-bottom-width: 1px;
   }
 
+  a:hover > svg {
+    @apply fill-primary;
+  }
+
   .active {
     @apply text-primary;
     @apply font-bold;
+
+    svg {
+      @apply fill-primary;
+    }
   }
 
   .non-mobile-navigation {
