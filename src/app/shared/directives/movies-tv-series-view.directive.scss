@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .main-content {
+    app-genres {
+      width: 250px;
+      margin-right: 20px;
+    }
+
+    div {
+      width: calc(100% - 250px - 20px);
+    }
+  }
+}

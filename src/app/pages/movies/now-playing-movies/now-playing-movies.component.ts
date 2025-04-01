@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { GenresComponent } from '@shared/components/genres/genres.component';
 
 @Component({
   selector: 'app-now-playing-movies',
-  imports: [],
+  imports: [
+    GenresComponent
+  ],
   templateUrl: './now-playing-movies.component.html',
-  styleUrl: './now-playing-movies.component.scss'
+  styleUrl: '../../../shared/directives/movies-tv-series-view.directive.scss'
 })
 export class NowPlayingMoviesComponent {
 
