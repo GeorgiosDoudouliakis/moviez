@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "@core/components/header/header.component";
 import { FooterComponent } from "@core/components/footer/footer.component";
-import { SearchComponent } from "@core/components/search/search.component";
 import { BackToTopComponent } from "@core/components/back-to-top/back-to-top.component";
 
 @Component({
@@ -11,7 +10,6 @@ import { BackToTopComponent } from "@core/components/back-to-top/back-to-top.com
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    SearchComponent,
     BackToTopComponent
   ],
   templateUrl: './app.component.html',

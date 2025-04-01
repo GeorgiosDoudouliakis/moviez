@@ -19,7 +19,7 @@
   .non-mobile-navigation {
     display: none;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       display: flex;
       align-items: center;
     }
@@ -37,7 +37,7 @@
       opacity: 1;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       display: none;
     }
   }
@@ -46,7 +46,7 @@
     width: 30px;
     height: 20px;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       display: none;
     }
 
