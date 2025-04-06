@@ -23,6 +23,12 @@ a, p, span, li {
   @apply text-secondary;
 }
 
+h2 {
+  @apply italic;
+  @apply font-semibold;
+  @apply text-2xl;
+}
+
 a {
   text-decoration: none;
 }
