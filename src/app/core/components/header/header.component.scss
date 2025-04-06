@@ -6,6 +6,7 @@
   .active {
     @apply text-primary;
     @apply font-bold;
+    @apply italic;
 
     svg {
       @apply fill-primary;
@@ -20,7 +21,7 @@
     }
 
     svg {
-      @apply fill-secondary;
+      @apply fill-white;
     }
   }
 

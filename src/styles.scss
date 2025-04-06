@@ -11,7 +11,7 @@
 
 body {
   position: relative;
-  @apply bg-bg-color;
+  @apply bg-dark;
   min-height: 100vh;
 }
 
@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
 }
 
 a, p, span, li {
-  @apply text-secondary;
+  @apply text-white;
 }
 
 h2 {

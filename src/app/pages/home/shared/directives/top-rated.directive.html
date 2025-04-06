@@ -5,7 +5,7 @@
         <div class="flex gap-x-6 justify-between overflow-x-auto w-full top-rated-items-container">
             @for(item of items(); track item.id) {
                 <app-card [title]="item.title" [image]="{ src: item.image, alt: item.title + 'poster', width: 185 }" [imageContent]="item.rate.toString()" [cardLink]="item.path">
-                    <span description class="text-darker-secondary">{{ item.releaseDate }}</span>
+                    <span description class="text-darker-white">{{ item.releaseDate }}</span>
                 </app-card>
             }
         </div>
