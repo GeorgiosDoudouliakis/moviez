@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series.directive';
+import { GenresComponent } from '@shared/components/genres/genres.component';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-top-rated-movies',
-  imports: [],
-  templateUrl: './top-rated-movies.component.html',
-  styleUrl: './top-rated-movies.component.scss'
+  imports: [GenresComponent, UpperCasePipe],
+  templateUrl: '../../../shared/directives/movies-tv-series.directive.html',
+  styleUrl: '../../../shared/directives/movies-tv-series.directive.scss'
 })
-export class TopRatedMoviesComponent {
-
+export class TopRatedMoviesComponent extends MoviesTvSeriesDirective {
+  public title: string = "top rated movies";
+  public genresType: "movie" | "tv" = "movie";
 }
