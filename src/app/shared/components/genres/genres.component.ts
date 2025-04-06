@@ -1,12 +1,13 @@
 import { Component, DestroyRef, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
 import { catchError, tap, throwError } from 'rxjs';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { Genre } from '@shared/interfaces/genres-response.interface';
 import { GenresService } from '@shared/services/genres.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-genres',
-  imports: [],
+  imports: [LoaderComponent],
   templateUrl: './genres.component.html',
   styleUrl: './genres.component.scss',
   providers: [GenresService]

@@ -1,21 +1,27 @@
 :host {
-  .loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-  }
+    @apply relative;
+    @apply block;
+    @apply rounded-md;
+    width: 100%;
 
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
+    &::after {
+      @apply absolute;
+      @apply top-0;
+      @apply left-0;
+      width: 0;
+      content: "";
+      height: 100%;
+      animation: rotation .8s linear infinite;
     }
-    100% {
-      transform: rotate(360deg);
+
+    @keyframes rotation {
+      0% {
+        @apply w-0;
+        @apply bg-lighter-dark;
+      }
+      100% {
+        @apply w-full;
+        @apply bg-dark;
+      }
     }
-  }
 }
