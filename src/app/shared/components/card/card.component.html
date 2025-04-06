@@ -1,35 +1,35 @@
 @if(cardLink()) {
-    <a class="flex cursor-pointer rounded-xl card-container" [routerLink]="cardLink()"
+    <a class="flex cursor-pointer rounded-md card-container" [routerLink]="cardLink()"
          [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
          [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
         <div class="relative img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"
              [ngStyle]="{ width: image()?.width + 'px' }">
             @if(image()?.src) {
-                <img class="responsive-img rounded-t-xl" [src]="image().src" [alt]="image()?.alt">
+                <img class="responsive-img rounded-t-md" [src]="image().src" [alt]="image()?.alt">
             } @else {
-                <img class="responsive-img rounded-t-xl" src="/assets/no_image_available.jpg" alt="No image available">
+                <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
             }
-            <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-xl rounded-es-xl">{{ imageContent() }}</span>
+            <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
         </div>
-        <div class="flex flex-col p-4 grow-0 card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
+        <div class="flex flex-col p-4 grow-0 bg-bg-lighter-color rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
             <span class="font-bold text-base text-secondary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
             <ng-content select="[description]"></ng-content>
         </div>
     </a>
 } @else {
-    <div class="flex rounded-xl card-container"
+    <div class="flex rounded-md card-container"
          [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
          [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
         <div class="relative img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"
              [ngStyle]="{ width: image()?.width + 'px' }">
             @if(image()?.src) {
-                <img class="responsive-img rounded-t-xl" [src]="image().src" [alt]="image()?.alt">
+                <img class="responsive-img rounded-t-md" [src]="image().src" [alt]="image()?.alt">
             } @else {
-                <img class="responsive-img rounded-t-xl" src="/assets/no_image_available.jpg" alt="No image available">
+                <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
             }
-            <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-xl rounded-es-xl">{{ imageContent() }}</span>
+            <span class="font-semibold absolute top-0 right-0 p-2 text-bg-color bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
         </div>
-        <div class="flex flex-col p-4 grow-0 card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
+        <div class="flex flex-col p-4 grow-0 bg-bg-lighter-color rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
             <span class="font-bold text-base text-secondary mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
             <ng-content select="[description]"></ng-content>
         </div>

@@ -3,11 +3,22 @@
   flex-direction: column;
 
   a {
-    @apply border-darker-secondary;
-    border-bottom-width: 1px;
+    @apply relative;
+
+    &::after {
+      @apply absolute;
+      @apply bottom-0;
+      @apply left-0;
+      @apply w-full;
+      @apply bg-primary;
+      height: 4px;
+      content: "";
+      border-radius: 100%;
+    }
   }
 
   a.active {
-    @apply border-primary;
+    @apply text-primary;
+    @apply italic;
   }
 }

@@ -10,7 +10,7 @@ module.exports = {
       'darker-secondary': '#dadada',
       'blue': '#6697E5',
       'bg-color': '#121212',
-      'header-bg-color': '#1F1F1F'
+      'bg-lighter-color': '#1F1F1F'
     },
     extend: {},
   },
