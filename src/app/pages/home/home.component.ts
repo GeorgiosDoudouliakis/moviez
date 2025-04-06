@@ -10,7 +10,6 @@ import { TopRatedTvSeriesComponent } from "./components/top-rated-tv-series/top-
     TopRatedMoviesComponent,
     TopRatedTvSeriesComponent
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {}
