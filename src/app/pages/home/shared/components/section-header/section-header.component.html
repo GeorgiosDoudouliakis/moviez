@@ -1,4 +1,6 @@
 <div class="flex justify-between items-center mb-10">
-    <h2>{{ title() | uppercase }}</h2>
-    <a class="link" [routerLink]="showAllPath()">{{ showAllLinkText() }}</a>
+    <h2>{{ title() }}</h2>
+    @if(showAllPath()) {
+      <a class="link" [routerLink]="showAllPath()">{{ showAllLinkText() }}</a>
+    }
 </div>

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series.directive';
 import { GenresComponent } from '@shared/components/genres/genres.component';
-import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-top-rated-movies',
-  imports: [GenresComponent, UpperCasePipe],
+  imports: [GenresComponent],
   templateUrl: '../../../shared/directives/movies-tv-series.directive.html',
   styleUrl: '../../../shared/directives/movies-tv-series.directive.scss'
 })
