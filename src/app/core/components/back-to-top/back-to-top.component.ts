@@ -26,9 +26,9 @@ export class BackToTopComponent implements AfterViewInit, OnDestroy {
 
   private _onWindowScroll(): void {
     if(this._window.scrollY > 500) {
-      this._renderer.setStyle(this.backToTopBtnRef()?.nativeElement, "top", "100px");
+      this._renderer.setStyle(this.backToTopBtnRef()?.nativeElement, "top", "40px");
     } else {
-      this._renderer.setStyle(this.backToTopBtnRef()?.nativeElement, "top", "-100px");
+      this._renderer.setStyle(this.backToTopBtnRef()?.nativeElement, "top", "-40px");
     }
   }
 }
