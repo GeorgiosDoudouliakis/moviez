@@ -1,8 +1,4 @@
 :host {
-  header {
-    border-bottom-width: 1px;
-  }
-
   a:hover > svg {
     @apply fill-primary;
   }
@@ -38,10 +34,10 @@
   }
 
   .mobile-menu {
-    top: 82px;
+    top: 80px;
     width: 0;
     opacity: 0;
-    height: calc(100vh - 82px);
+    height: calc(100vh - 80px);
     transition: all .5s;
 
     &.mobile-menu-active {

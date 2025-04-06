@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center mb-10">
-    <h2 class="font-semibold text-2xl text-primary">
-        {{ title() }}
+    <h2 class="italic font-semibold text-2xl text-primary">
+        {{ title() | uppercase }}
     </h2>
     <a class="font-semibold text-base text-blue hover:underline" [routerLink]="showAllPath()">
         {{ showAllLinkText() }}
