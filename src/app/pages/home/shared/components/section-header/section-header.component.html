@@ -1,6 +1,4 @@
 <div class="flex justify-between items-center mb-10">
     <h2>{{ title() | uppercase }}</h2>
-    <a class="font-semibold text-base text-secondary hover:underline" [routerLink]="showAllPath()">
-        {{ showAllLinkText() }}
-    </a>
+    <a class="link" [routerLink]="showAllPath()">{{ showAllLinkText() }}</a>
 </div>
