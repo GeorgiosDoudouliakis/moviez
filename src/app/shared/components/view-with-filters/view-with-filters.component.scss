@@ -10,7 +10,7 @@
       @apply bottom-0;
       @apply left-0;
       @apply w-full;
-      @apply bg-primary;
+      @apply bg-darker-white;
       height: 4px;
       content: "";
       border-radius: 100%;
@@ -20,5 +20,9 @@
   a.active {
     @apply text-primary;
     @apply italic;
+
+    &::after {
+      @apply bg-primary;
+    }
   }
 }
