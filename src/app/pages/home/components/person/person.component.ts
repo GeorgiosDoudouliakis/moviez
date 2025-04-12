@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { PersonWithPath } from "../../interfaces/persons-response.interface";
+import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
 
 @Component({
   selector: 'app-person',

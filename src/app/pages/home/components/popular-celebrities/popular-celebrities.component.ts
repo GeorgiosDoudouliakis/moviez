@@ -3,13 +3,13 @@ import { PopularCelebritiesService } from "../../services/popular-celebrities.se
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { catchError, tap, throwError } from "rxjs";
 import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
-import { LoaderComponent } from "@shared/components/loader/loader.component";
+import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
-import { PersonComponent } from "@shared/components/person/person.component";
+import { PersonComponent } from "../person/person.component";
 
 @Component({
   selector: 'app-popular-celebrities',
-  imports: [LoaderComponent, SectionHeaderComponent, PersonComponent],
+  imports: [SkeletonComponent, SectionHeaderComponent, PersonComponent],
   templateUrl: './popular-celebrities.component.html',
   providers: [PopularCelebritiesService]
 })
