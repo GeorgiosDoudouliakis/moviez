@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActorsService } from './services/actors.service';
+import { MoviesTvSeriesActorsListDirective } from '@shared/directives/movies-tv-series-actors-list.directive';
+import { Person } from '@shared/interfaces/persons-response.interface';
+import { CardComponent } from '@shared/components/card/card.component';
 
 @Component({
   selector: 'app-actors',
-  imports: [],
+  imports: [
+    CardComponent
+  ],
   templateUrl: './actors.component.html',
-  styleUrl: './actors.component.scss'
+  styleUrl: './actors.component.scss',
+  providers: [ActorsService]
 })
-export class ActorsComponent {
-
+export class ActorsComponent extends MoviesTvSeriesActorsListDirective<Person> {
+  public readonly service: ActorsService = inject(ActorsService);
 }

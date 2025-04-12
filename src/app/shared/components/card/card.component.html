@@ -9,7 +9,9 @@
             } @else {
                 <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
             }
-            <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            @if(imageContent()) {
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            }
         </div>
         <div class="flex flex-col p-4 grow-0 bg-lighter-dark rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
             <span class="font-bold text-base text-white mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
@@ -27,7 +29,9 @@
             } @else {
                 <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
             }
-            <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            @if(imageContent()) {
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            }
         </div>
         <div class="flex flex-col p-4 grow-0 bg-lighter-dark rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
             <span class="font-bold text-base text-white mb-1" role="heading" [attr.aria-level]="titleAriaLevel()">{{ title() }}</span>
