@@ -1,5 +1,5 @@
 import { DestroyRef, Directive, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { catchError, Subject, switchMap, tap, throwError } from 'rxjs';
+import { catchError, Observable, Subject, switchMap, tap, throwError } from 'rxjs';
 import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-series-actors-list-service.interface';
 import { BaseResponse } from '@shared/interfaces/base-response.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -16,13 +16,13 @@ export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnI
   public showLoadMore: WritableSignal<boolean> = signal(false);
   private _currentPage: WritableSignal<number> = signal<number>(1);
   private _totalPages: WritableSignal<number> = signal<number>(1);
+  public readonly LoadingState: typeof LoadingState = LoadingState;
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
-  private readonly LoadingState: typeof LoadingState = LoadingState;
 
   public abstract readonly service: MoviesTvSeriesActorsListService<ItemType>;
 
   private _itemsEvent: Subject<number> = new Subject<number>();
-  private _items$ = this._itemsEvent.asObservable().pipe(
+  private _items$: Observable<BaseResponse<ItemType>> = this._itemsEvent.asObservable().pipe(
     tap(() => this.loadingState() === LoadingState.FETCHING ? this.items.set([]) : this.items.set([...this.items()])),
     switchMap((page: number) => this.service.items$(page)),
     tap((response: BaseResponse<ItemType>) => {

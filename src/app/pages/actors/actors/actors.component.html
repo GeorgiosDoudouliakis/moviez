@@ -1,11 +1,19 @@
 <h2 class="mb-10">ACTORS</h2>
 
-@if(!loadingState()) {
-  <div class="flex flex-wrap gap-10">
+@if(items().length) {
+  <div class="flex flex-wrap justify-center gap-10">
     @for(item of items(); track item.id) {
-      <app-card direction="vertical" [title]="item.name" [image]="{ src: item.profile_path, alt: item.original_name, width: 185 }" class="cursor-pointer" />
+      <app-card direction="vertical" [title]="item.name" [image]="{ src: item.profile_path, alt: item.original_name, width: 185 }" class="cursor-pointer"/>
     }
   </div>
+}
+
+@if(loadingState() === LoadingState.FETCHING && !items().length) {
+  <app-skeleton height="200px"/>
+}
+
+@if(loadingState() === LoadingState.LOAD_MORE) {
+  <span class="text-base text-center text-white mt-10 mx-auto">Loading...</span>
 }
 
 @if(showLoadMore()) {
