@@ -3,7 +3,7 @@
 @if(items().length) {
   <div>
     @for(item of items(); track item.id) {
-      <app-card direction="vertical" [title]="item.name" [imageSrc]="item.profile_path" [imageAlt]="item.original_name" class="cursor-pointer"/>
+      <app-card direction="vertical" [title]="item.name" [imageSrc]="item.profile_path" [imageAlt]="item.original_name"/>
     }
   </div>
 }

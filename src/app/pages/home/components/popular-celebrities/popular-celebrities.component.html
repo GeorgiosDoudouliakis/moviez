@@ -4,7 +4,7 @@
     @if(!loading()) {
         <div class="flex flex-wrap justify-center items-center gap-8">
             @for(celebrity of popularCelebrities(); track celebrity.id) {
-              <a class="inline-flex flex-col items-center cursor-pointer celebrity" [routerLink]="celebrity.path">
+              <a class="inline-flex flex-col items-center celebrity" [routerLink]="celebrity.path">
                 <div class="mb-4 celebrity-img-container">
                   <img class="rounded-full responsive-img" [src]="celebrity.profile_path" [alt]="celebrity.name" width="185" height="185">
                 </div>

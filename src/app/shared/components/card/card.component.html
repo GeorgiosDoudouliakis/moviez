@@ -1,5 +1,5 @@
 @if(cardLink()) {
-    <a class="flex cursor-pointer rounded-md card-container" [routerLink]="cardLink()"
+    <a class="flex rounded-md card-container" [routerLink]="cardLink()"
          [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }">
         <div class="relative img-container">
             @if(imageSrc()) {
