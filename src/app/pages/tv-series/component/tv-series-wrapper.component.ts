@@ -9,7 +9,7 @@ import { Tab } from '@shared/interfaces/tab.interface';
     <app-view-with-filters [tabs]="tabs"/>
   `
 })
-export class TvSeriesComponent {
+export class TvSeriesWrapperComponent {
   public tabs: Tab[] = [
     {
       id: "Airing today",

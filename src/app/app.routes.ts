@@ -7,7 +7,7 @@ export const routes: Routes = [
     },
     {
         path: "movies",
-        loadComponent: () => import("./pages/movies/movies.component").then(c => c.MoviesComponent),
+        loadComponent: () => import("./pages/movies/component/movies-wrapper.component").then(c => c.MoviesWrapperComponent),
         children: [
           {
             path: "now-playing",
@@ -34,7 +34,7 @@ export const routes: Routes = [
     },
     {
         path: "tv-series",
-        loadComponent: () => import("./pages/tv-series/tv-series.component").then(c => c.TvSeriesComponent),
+        loadComponent: () => import("./pages/tv-series/component/tv-series-wrapper.component").then(c => c.TvSeriesWrapperComponent),
         children: [
           {
             path: "airing-today",

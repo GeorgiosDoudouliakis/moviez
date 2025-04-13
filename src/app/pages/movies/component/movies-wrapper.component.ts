@@ -9,7 +9,7 @@ import { Tab } from '@shared/interfaces/tab.interface';
     <app-view-with-filters [tabs]="tabs"/>
   `
 })
-export class MoviesComponent {
+export class MoviesWrapperComponent {
   public tabs: Tab[] = [
     {
       id: "Now playing",
