@@ -1,7 +1,7 @@
 <h2 class="mb-10">ACTORS</h2>
 
 @if(items().length) {
-  <div class="flex flex-wrap justify-center gap-10">
+  <div>
     @for(item of items(); track item.id) {
       <app-card direction="vertical" [title]="item.name" [imageSrc]="item.profile_path" [imageAlt]="item.original_name" class="cursor-pointer"/>
     }

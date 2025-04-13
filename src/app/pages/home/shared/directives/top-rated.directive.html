@@ -2,7 +2,7 @@
     <app-section-header [title]="title" [showAllPath]="showAllPath" [showAllLinkText]="showAllLinkText" />
 
     @if(!loading()) {
-        <div class="flex gap-x-6 justify-between overflow-x-auto w-full top-rated-items-container">
+        <div class="overflow-x-auto top-rated-items-container">
             @for(item of items(); track item.id) {
                 <app-card [title]="item.title" [imageSrc]="item.image" [imageAlt]="item.title + ' poster'" [topRightContent]="item.rate.toString()" [cardLink]="item.path">
                     <span description class="text-darker-white">{{ item.releaseDate }}</span>

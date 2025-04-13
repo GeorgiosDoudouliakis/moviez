@@ -1,17 +1,12 @@
 import { Component, input } from '@angular/core';
-import { NgClass, NgStyle } from "@angular/common";
+import { NgClass } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { mapImagePath } from '@core/helpers/map-image-path.helper';
 
 @Component({
   selector: 'app-card',
-    imports: [
-        NgClass,
-        NgStyle,
-        RouterLink
-    ],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  imports: [NgClass, RouterLink],
+  templateUrl: './card.component.html'
 })
 export class CardComponent {
   public title = input.required<string>();

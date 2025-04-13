@@ -1,5 +1,8 @@
 :host {
   .top-rated-items-container {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(20, 185px);
     min-height: 430px;
 
     &::-webkit-scrollbar {
@@ -14,11 +17,6 @@
       @apply bg-darker-white;
       border-radius: 8px;
       cursor: pointer;
-    }
-
-    app-card {
-      width: 185px;
-      height: 100%;
     }
   }
 
