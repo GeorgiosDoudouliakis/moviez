@@ -1,4 +1,4 @@
-import { TopRatedItemModel } from "../../interfaces/top-rated-item-model.interface";
+import { TopRatedItemModel } from "./top-rated-item-model.interface";
 import { Observable } from "rxjs";
 
 export interface TopRatedService {

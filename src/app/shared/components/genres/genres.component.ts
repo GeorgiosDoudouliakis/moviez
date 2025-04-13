@@ -1,8 +1,8 @@
 import { Component, DestroyRef, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
 import { catchError, tap, throwError } from 'rxjs';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { Genre } from '@shared/interfaces/genres-response.interface';
-import { GenresService } from '@shared/services/genres.service';
+import { Genre } from '@shared/components/genres/interface/genres-response.interface';
+import { GenresService } from '@shared/components/genres/service/genres.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

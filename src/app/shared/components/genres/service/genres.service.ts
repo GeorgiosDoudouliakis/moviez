@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Genre, GenresResponse } from '@shared/interfaces/genres-response.interface';
+import { Genre, GenresResponse } from '@shared/components/genres/interface/genres-response.interface';
 
 @Injectable()
 export class GenresService {

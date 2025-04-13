@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TopRatedService } from "../shared/interfaces/top-rated-service.interface";
 import { map, Observable } from "rxjs";
-import { TopRatedItemModel } from "../interfaces/top-rated-item-model.interface";
+import { TopRatedItemModel } from "../shared/interfaces/top-rated-item-model.interface";
 import { HttpClient } from "@angular/common/http";
 import { Movie, MoviesResponse } from "@shared/interfaces/movies-response.interface";
 import { mapVoteAverage } from "@core/helpers/map-vote-average.helper";

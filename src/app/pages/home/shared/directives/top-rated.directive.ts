@@ -1,5 +1,5 @@
 import { DestroyRef, Directive, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { TopRatedItemModel } from "../../interfaces/top-rated-item-model.interface";
+import { TopRatedItemModel } from "../interfaces/top-rated-item-model.interface";
 import { TopRatedService } from "../interfaces/top-rated-service.interface";
 import { catchError, tap, throwError } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
