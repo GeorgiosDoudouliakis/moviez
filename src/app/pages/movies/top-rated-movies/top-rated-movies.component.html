@@ -21,5 +21,34 @@
 
 <div class="flex main-content">
   <app-genres genresType="movie"/>
-  <div></div>
+  <div class="flex flex-col list">
+    @if(items().length) {
+      <div>
+        @for(item of items(); track item.id) {
+          <app-card direction="vertical" [title]="item.title" [imageSrc]="item.poster_path" [imageAlt]="item.title" [topRightContent]="mapVoteAverage(item.vote_average).toString()" cardLink="./">
+            <ng-container description>
+              <span class="text-base text-darker-white">{{ mapDate(item.release_date) }}</span>
+              @if(item.vote_count) {
+                <span class="text-base text-darker-white">Votes: {{ item.vote_count }}</span>
+              } @else {
+                <span class="text-base text-darker-white">No votes yet</span>
+              }
+            </ng-container>
+          </app-card>
+        }
+      </div>
+    }
+
+    @if(loadingState() === LoadingState.FETCHING && !items().length) {
+      <app-skeleton height="200px"/>
+    }
+
+    @if(loadingState() === LoadingState.LOAD_MORE) {
+      <span class="text-base text-center text-white mt-10 mx-auto">Loading...</span>
+    }
+
+    @if(showLoadMore()) {
+      <button class="inline-flex text-lg text-dark py-2 px-4 mt-10 mx-auto bg-primary rounded" (click)="onLoadMore()">Load more</button>
+    }
+  </div>
 </div>

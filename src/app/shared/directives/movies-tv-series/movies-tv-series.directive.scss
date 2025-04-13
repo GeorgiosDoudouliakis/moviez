@@ -5,11 +5,29 @@
   .main-content {
     app-genres {
       width: 250px;
-      margin-right: 20px;
+      margin-right: 40px;
     }
 
-    div {
-      width: calc(100% - 250px - 20px);
+    .list {
+      width: calc(100% - 250px - 40px);
+
+      div {
+        display: grid;
+        grid-gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media screen and (min-width: 960px) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (min-width: 1280px) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media screen and (min-width: 1440px) {
+          grid-template-columns: repeat(5, 1fr);
+        }
+      }
     }
   }
 }
