@@ -3,7 +3,7 @@
 @if(items().length) {
   <div class="flex flex-wrap justify-center gap-10">
     @for(item of items(); track item.id) {
-      <app-card direction="vertical" [title]="item.name" [image]="{ src: item.profile_path, alt: item.original_name, width: 185 }" class="cursor-pointer"/>
+      <app-card direction="vertical" [title]="item.name" [imageSrc]="item.profile_path" [imageAlt]="item.original_name" class="cursor-pointer"/>
     }
   </div>
 }
@@ -17,5 +17,5 @@
 }
 
 @if(showLoadMore()) {
-  <button class="inline-flex text-lg text-white mt-10 mx-auto" (click)="onLoadMore()">Load more</button>
+  <button class="inline-flex text-lg text-dark py-2 px-4 mt-10 mx-auto bg-primary rounded" (click)="onLoadMore()">Load more</button>
 }

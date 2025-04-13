@@ -15,7 +15,6 @@ export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnI
   public loadingState: WritableSignal<LoadingState | null> = signal<LoadingState | null>(LoadingState.FETCHING);
   public showLoadMore: WritableSignal<boolean> = signal(false);
   private _currentPage: WritableSignal<number> = signal<number>(1);
-  private _totalPages: WritableSignal<number> = signal<number>(1);
   public readonly LoadingState: typeof LoadingState = LoadingState;
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
@@ -27,8 +26,7 @@ export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnI
     switchMap((page: number) => this.service.items$(page)),
     tap((response: BaseResponse<ItemType>) => {
       this.items.set([...this.items(), ...response.results]);
-      this._totalPages.set(response.total_pages);
-      this.showLoadMore.set(this._currentPage() + 1 <= this._totalPages());
+      this.showLoadMore.set(this._currentPage() + 1 <= 500);
       this.loadingState.set(null);
     }),
     catchError(error => {
@@ -40,7 +38,7 @@ export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnI
 
   public ngOnInit(): void {
     this._items$.subscribe();
-    this._itemsEvent.next(1);
+    this._itemsEvent.next(this._currentPage());
   }
 
   public onLoadMore(): void {

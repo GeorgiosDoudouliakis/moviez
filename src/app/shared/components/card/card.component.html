@@ -1,16 +1,16 @@
 @if(cardLink()) {
     <a class="flex cursor-pointer rounded-md card-container" [routerLink]="cardLink()"
          [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
-         [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
+         [ngStyle]="{ width: direction() === 'vertical' ? '185px' : '100%' }">
         <div class="relative img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"
-             [ngStyle]="{ width: image()?.width + 'px' }">
-            @if(image()?.src) {
-                <img class="responsive-img rounded-t-md" [src]="image().src" [alt]="image()?.alt">
+             [ngStyle]="{ width: '185px' }">
+            @if(imageSrc()) {
+                <img class="responsive-img rounded-t-md" [src]="mapImagePath(185, imageSrc())" [alt]="imageAlt()">
             } @else {
-                <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
+                <img class="responsive-img rounded-t-md" src="assets/images/noImageAvailable.jpg" alt="No image available">
             }
-            @if(imageContent()) {
-              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            @if(topRightContent()) {
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ topRightContent() }}</span>
             }
         </div>
         <div class="flex flex-col p-4 grow-0 bg-lighter-dark rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
@@ -21,16 +21,16 @@
 } @else {
     <div class="flex rounded-md card-container"
          [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }"
-         [ngStyle]="{ width: direction() === 'vertical' ? image()?.width + 'px' : '100%' }">
+         [ngStyle]="{ width: direction() === 'vertical' ? '185px' : '100%' }">
         <div class="relative img-container shrink-0" [ngClass]="{ 'height-when-vertical': direction() === 'vertical' }"
-             [ngStyle]="{ width: image()?.width + 'px' }">
-            @if(image()?.src) {
-                <img class="responsive-img rounded-t-md" [src]="image().src" [alt]="image()?.alt">
+             [ngStyle]="{ width: '185px' }">
+            @if(imageSrc()) {
+                <img class="responsive-img rounded-t-md" [src]="mapImagePath(185, imageSrc())" [alt]="imageAlt()">
             } @else {
-                <img class="responsive-img rounded-t-md" src="/assets/no_image_available.jpg" alt="No image available">
+                <img class="responsive-img rounded-t-md" src="assets/images/noImageAvailable.jpg" alt="No image available">
             }
-            @if(imageContent()) {
-              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ imageContent() }}</span>
+            @if(topRightContent()) {
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-se-md rounded-es-md">{{ topRightContent() }}</span>
             }
         </div>
         <div class="flex flex-col p-4 grow-0 bg-lighter-dark rounded-b-md card-content" [ngClass]="{ 'ml-2': direction() === 'horizontal' }">
