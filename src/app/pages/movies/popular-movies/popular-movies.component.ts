@@ -4,8 +4,8 @@ import { PopularMoviesService } from './service/popular-movies.service';
 import { Movie } from '@shared/interfaces/movies-response.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
 import { UpperCasePipe } from '@angular/common';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
 
 @Component({
   selector: 'app-popular-movies',
@@ -14,7 +14,7 @@ import { UpperCasePipe } from '@angular/common';
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [PopularMoviesService]
 })
-export class PopularMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+export class PopularMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
   public title: string = 'popular movies';
   public readonly service: PopularMoviesService = inject(PopularMoviesService);
 }

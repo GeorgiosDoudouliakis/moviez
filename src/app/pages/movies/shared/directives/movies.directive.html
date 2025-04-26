@@ -25,9 +25,9 @@
     @if(items().length) {
       <div>
         @for(item of items(); track item.id) {
-          <app-card direction="vertical" [title]="item.title" [imageSrc]="item.poster_path" [imageAlt]="item.title" [topRightContent]="mapVoteAverage(item.vote_average).toString()" cardLink="./">
+          <app-card direction="vertical" [title]="item.title" [imageSrc]="item.poster_path" [imageAlt]="item.title" [topRightContent]="item.vote_average.toString()" cardLink="./">
             <ng-container description>
-              <span class="text-base text-darker-white">{{ mapDate(item.release_date) }}</span>
+              <span class="text-base text-darker-white">{{ item.release_date }}</span>
               @if(item.vote_count) {
                 <span class="text-base text-darker-white">Votes: {{ item.vote_count }}</span>
               } @else {

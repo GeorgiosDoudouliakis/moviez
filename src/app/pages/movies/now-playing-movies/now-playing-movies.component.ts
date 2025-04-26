@@ -4,8 +4,8 @@ import { Movie } from '@shared/interfaces/movies-response.interface';
 import { NowPlayingMoviesService } from './service/now-playing-movies.service';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
 import { UpperCasePipe } from '@angular/common';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
 
 @Component({
   selector: 'app-now-playing-movies',
@@ -14,7 +14,7 @@ import { UpperCasePipe } from '@angular/common';
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [NowPlayingMoviesService]
 })
-export class NowPlayingMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+export class NowPlayingMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
   public title: string = 'now playing movies';
   public readonly service: NowPlayingMoviesService = inject(NowPlayingMoviesService);
 }

@@ -4,8 +4,8 @@ import { UpcomingMoviesService } from './service/upcoming-movies.service';
 import { Movie } from '@shared/interfaces/movies-response.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
 import { UpperCasePipe } from '@angular/common';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
 
 @Component({
   selector: 'app-upcoming-movies',
@@ -14,7 +14,7 @@ import { UpperCasePipe } from '@angular/common';
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [UpcomingMoviesService]
 })
-export class UpcomingMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+export class UpcomingMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
   public title: string = 'upcoming movies';
   public readonly service: UpcomingMoviesService = inject(UpcomingMoviesService);
 }

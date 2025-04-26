@@ -4,8 +4,8 @@ import { TopRatedMoviesService } from './service/top-rated-movies.service';
 import { Movie } from '@shared/interfaces/movies-response.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
 import { UpperCasePipe } from '@angular/common';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
 
 @Component({
   selector: 'app-top-rated-movies',
@@ -14,7 +14,7 @@ import { UpperCasePipe } from '@angular/common';
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [TopRatedMoviesService]
 })
-export class TopRatedMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+export class TopRatedMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
   public title: string = 'top rated movies';
   public readonly service: TopRatedMoviesService = inject(TopRatedMoviesService);
 }
