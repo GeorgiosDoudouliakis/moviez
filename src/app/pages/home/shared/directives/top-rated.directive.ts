@@ -12,7 +12,7 @@ export abstract class TopRatedDirective implements OnInit {
     public abstract showAllPath: string;
     public abstract showAllLinkText: string;
     protected abstract service: TopRatedService;
-    private _destroyRef = inject(DestroyRef);
+    private readonly _destroyRef = inject(DestroyRef);
 
     public ngOnInit(): void {
         this.service.topRatedItems$().pipe(

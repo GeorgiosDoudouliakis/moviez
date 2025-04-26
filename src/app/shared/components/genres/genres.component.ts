@@ -18,8 +18,8 @@ export class GenresComponent implements OnInit {
   public genresType: InputSignal<"movie" | "tv"> = input.required<"movie" | "tv">();
 
   constructor(
-    private _genresService: GenresService,
-    private _destroyRef: DestroyRef
+    private readonly _genresService: GenresService,
+    private readonly _destroyRef: DestroyRef
   ) {}
 
   public ngOnInit(): void {

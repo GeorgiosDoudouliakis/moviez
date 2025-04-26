@@ -19,8 +19,8 @@ export class PopularCelebritiesComponent implements OnInit {
   public loading: WritableSignal<boolean> = signal<boolean>(true);
 
   constructor(
-      private _popularCelebritiesService: PopularCelebritiesService,
-      private _destroyRef: DestroyRef
+      private readonly _popularCelebritiesService: PopularCelebritiesService,
+      private readonly _destroyRef: DestroyRef
   ) {}
 
   public ngOnInit(): void {

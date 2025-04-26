@@ -10,7 +10,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, Signal, vie
 export class BackToTopComponent implements AfterViewInit, OnDestroy {
   public backToTopBtnRef: Signal<ElementRef<HTMLButtonElement> | undefined> = viewChild<ElementRef>("backToTopBtn");
 
-  constructor(private _window: Window, private _renderer: Renderer2) {}
+  constructor(private readonly _window: Window, private readonly _renderer: Renderer2) {}
 
   public ngAfterViewInit(): void {
     this._window.addEventListener("scroll", () => this._onWindowScroll());

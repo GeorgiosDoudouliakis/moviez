@@ -10,7 +10,7 @@ import { EncodingUtilities } from "@core/utilities/encoding.utilities";
 
 @Injectable()
 export class TopRatedMoviesService implements TopRatedService {
-    constructor(private _httpClient: HttpClient) {}
+    constructor(private readonly _httpClient: HttpClient) {}
 
     public topRatedItems$(): Observable<TopRatedItemModel[]> {
         return this._httpClient.get<MoviesResponse>("https://api.themoviedb.org/3/movie/top_rated?api_key=803a77b2748b6f5d6363b4fa92bfd870&page=1").pipe(

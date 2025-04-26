@@ -15,7 +15,7 @@ import { CommonModule, DOCUMENT } from "@angular/common";
 export class HeaderComponent {
   public isMobileMenuActive: WritableSignal<boolean> = signal<boolean>(false);
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
 
   public handleMobileMenuVisibility(): void {
     this.isMobileMenuActive.set(!this.isMobileMenuActive());

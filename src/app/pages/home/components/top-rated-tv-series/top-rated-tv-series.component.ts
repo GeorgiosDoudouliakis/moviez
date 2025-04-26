@@ -16,5 +16,5 @@ export class TopRatedTvSeriesComponent extends TopRatedDirective {
   public title: string = "top rated tv series";
   public showAllPath: string = "tv-series";
   public showAllLinkText: string = "View all tv series";
-  protected service: TopRatedTvSeriesService = inject(TopRatedTvSeriesService);
+  protected readonly service: TopRatedTvSeriesService = inject(TopRatedTvSeriesService);
 }

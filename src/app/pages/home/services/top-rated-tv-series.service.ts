@@ -10,7 +10,7 @@ import { TvSerie, TvSeriesResponse } from "@shared/interfaces/tv-series-response
 
 @Injectable()
 export class TopRatedTvSeriesService implements TopRatedService {
-    constructor(private _httpClient: HttpClient) {}
+    constructor(private readonly _httpClient: HttpClient) {}
 
     public topRatedItems$(): Observable<TopRatedItemModel[]> {
         return this._httpClient.get<TvSeriesResponse>("https://api.themoviedb.org/3/tv/top_rated?api_key=803a77b2748b6f5d6363b4fa92bfd870&page=1").pipe(

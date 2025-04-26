@@ -7,7 +7,7 @@ import { BaseResponse } from '@shared/interfaces/base-response.interface';
 
 @Injectable()
 export class ActorsService implements MoviesTvSeriesActorsListService<Person> {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private readonly _httpClient: HttpClient) {}
 
   public items$(page: number): Observable<BaseResponse<Person>> {
     return this._httpClient.get<BaseResponse<Person>>(`https://api.themoviedb.org/3/person/popular?api_key=803a77b2748b6f5d6363b4fa92bfd870&language=en-US&page=${page}`)

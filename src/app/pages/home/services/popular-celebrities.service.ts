@@ -7,7 +7,7 @@ import { EncodingUtilities } from "@core/utilities/encoding.utilities";
 
 @Injectable()
 export class PopularCelebritiesService {
-    constructor(private _httpClient: HttpClient) {}
+    constructor(private readonly _httpClient: HttpClient) {}
 
     public popularCelebrities$(): Observable<PersonWithPath[]> {
         return this._httpClient.get<PersonsResponse>("https://api.themoviedb.org/3/person/popular?api_key=803a77b2748b6f5d6363b4fa92bfd870").pipe(

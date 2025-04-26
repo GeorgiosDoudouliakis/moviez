@@ -5,7 +5,7 @@ import { Genre, GenresResponse } from '@shared/components/genres/interface/genre
 
 @Injectable()
 export class GenresService {
-  constructor(private _httpClient: HttpClient) {}
+  constructor(private readonly _httpClient: HttpClient) {}
 
   public genres$(type: "movie" | "tv"): Observable<Genre[]> {
     return this._httpClient.get<GenresResponse>(`https://api.themoviedb.org/3/genre/${type}/list?api_key=803a77b2748b6f5d6363b4fa92bfd870`).pipe(
