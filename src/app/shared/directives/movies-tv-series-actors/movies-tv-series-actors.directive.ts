@@ -3,11 +3,7 @@ import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-series-actors-list-service.interface';
 import { BaseResponse } from '@shared/interfaces/base-response.interface';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-
-enum LoadingState {
-  FETCHING = 'FETCHING',
-  LOAD_MORE = 'LOAD_MORE'
-}
+import { LoadingState } from '../../enums/loading-state.enum';
 
 @Directive()
 export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit {
@@ -19,7 +15,6 @@ export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit 
   private _totalPages: WritableSignal<number> = signal<number>(1);
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
-  public abstract title: string;
   public abstract readonly service: MoviesTvSeriesActorsListService<ItemType>;
 
   private _itemsEvent: WritableSignal<number> = signal<number>(this._currentPage());
