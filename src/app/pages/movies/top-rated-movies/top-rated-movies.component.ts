@@ -4,20 +4,17 @@ import { TopRatedMoviesService } from './service/top-rated-movies.service';
 import { Movie } from '@shared/interfaces/movies-response.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { mapDate } from '@core/helpers/map-date.helper';
-import { mapVoteAverage } from '@core/helpers/map-vote-average.helper';
-import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-top-rated-movies',
-  imports: [GenresComponent, CardComponent, SkeletonComponent],
+  imports: [GenresComponent, CardComponent, SkeletonComponent, UpperCasePipe],
   templateUrl: '../shared/directives/movies.directive.html',
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [TopRatedMoviesService]
 })
-export class TopRatedMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
-  public title: string = 'TOP RATED MOVIES';
+export class TopRatedMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+  public title: string = 'top rated movies';
   public readonly service: TopRatedMoviesService = inject(TopRatedMoviesService);
-  protected readonly mapDate = mapDate;
-  protected readonly mapVoteAverage = mapVoteAverage;
 }

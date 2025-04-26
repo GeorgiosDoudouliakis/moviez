@@ -4,18 +4,20 @@ import { Person } from '@shared/interfaces/persons-response.interface';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-actors',
   imports: [
     CardComponent,
-    SkeletonComponent
+    SkeletonComponent,
+    UpperCasePipe
   ],
   templateUrl: './actors.component.html',
   styleUrl: './actors.component.scss',
   providers: [ActorsService]
 })
 export class ActorsComponent extends MoviesTvSeriesActorsDirective<Person> {
-  public title: string = 'ACTORS';
+  public title: string = 'actors';
   public readonly service: ActorsService = inject(ActorsService);
 }

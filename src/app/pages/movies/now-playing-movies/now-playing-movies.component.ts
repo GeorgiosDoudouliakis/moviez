@@ -4,20 +4,17 @@ import { Movie } from '@shared/interfaces/movies-response.interface';
 import { NowPlayingMoviesService } from './service/now-playing-movies.service';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { mapDate } from '@core/helpers/map-date.helper';
-import { mapVoteAverage } from '@core/helpers/map-vote-average.helper';
-import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { MoviesTvSeriesDirective } from '@shared/directives/movies-tv-series/movies-tv-series.directive';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-now-playing-movies',
-  imports: [GenresComponent, CardComponent, SkeletonComponent],
+  imports: [GenresComponent, CardComponent, SkeletonComponent, UpperCasePipe],
   templateUrl: '../shared/directives/movies.directive.html',
   styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss',
   providers: [NowPlayingMoviesService]
 })
-export class NowPlayingMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
-  public title: string = 'NOW PLAYING MOVIES';
+export class NowPlayingMoviesComponent extends MoviesTvSeriesDirective<Movie> {
+  public title: string = 'now playing movies';
   public readonly service: NowPlayingMoviesService = inject(NowPlayingMoviesService);
-  protected readonly mapDate = mapDate;
-  protected readonly mapVoteAverage = mapVoteAverage;
 }

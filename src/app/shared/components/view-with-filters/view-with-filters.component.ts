@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Tab } from '@shared/interfaces/tab.interface';
 
@@ -9,5 +9,5 @@ import { Tab } from '@shared/interfaces/tab.interface';
   styleUrl: './view-with-filters.component.scss'
 })
 export class ViewWithFiltersComponent {
-  public tabs = input.required<Tab[]>();
+  public tabs: InputSignal<Tab[]> = input.required<Tab[]>();
 }

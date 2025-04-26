@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, Signal, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-back-to-top',
@@ -8,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, viewChild }
   providers: [{ provide: Window, useValue: window }]
 })
 export class BackToTopComponent implements AfterViewInit, OnDestroy {
-  public backToTopBtnRef = viewChild<ElementRef>("backToTopBtn");
+  public backToTopBtnRef: Signal<ElementRef<HTMLButtonElement> | undefined> = viewChild<ElementRef>("backToTopBtn");
 
   constructor(private _window: Window, private _renderer: Renderer2) {}
 

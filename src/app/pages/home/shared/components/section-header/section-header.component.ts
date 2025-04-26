@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './section-header.component.scss'
 })
 export class SectionHeaderComponent {
-  public title = input.required<string>();
-  public showAllPath = input<string>();
-  public showAllLinkText = input<string>();
+  public title: InputSignal<string> = input.required<string>();
+  public showAllPath: InputSignal<string | undefined> = input<string>();
+  public showAllLinkText: InputSignal<string | undefined> = input<string>();
 }
