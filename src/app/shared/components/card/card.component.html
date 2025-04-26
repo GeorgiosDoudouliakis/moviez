@@ -8,8 +8,8 @@
                 <img class="responsive-img rounded-t-md" src="assets/images/noImageAvailable.jpg" alt="No image available" [ngClass]="{ 'rounded-t-md': direction() === 'vertical', 'rounded-md': direction() === 'horizontal' }">
             }
             @if(topRightContent()) {
-              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary"
-                    [ngClass]="{ 'rounded-se-md rounded-es-md': direction() === 'vertical', 'rounded-es-md': direction() === 'horizontal' }">
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-es-md"
+                    [ngClass]="{ 'rounded-se-md': direction() === 'vertical' }">
                 {{ topRightContent() }}
               </span>
             }
@@ -32,8 +32,8 @@
                      [ngClass]="{ 'rounded-t-md': direction() === 'vertical', 'rounded-md': direction() === 'horizontal' }">
             }
             @if(topRightContent()) {
-              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary"
-                    [ngClass]="{ 'rounded-se-md rounded-es-md': direction() === 'vertical', 'rounded-es-md': direction() === 'horizontal' }">
+              <span class="font-semibold absolute top-0 right-0 p-2 text-dark bg-primary rounded-es-md"
+                    [ngClass]="{ 'rounded-se-md': direction() === 'vertical' }">
                 {{ topRightContent() }}
               </span>
             }
