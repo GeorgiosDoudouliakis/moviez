@@ -1,5 +1,12 @@
 <div class="flex justify-between items-center mb-10">
-  <h2>{{ title() }}</h2>
+  <div class="inline-flex items-center">
+    <button class="text-base text-primary py-2 px-4 mr-6 border border-primary bg-dark rounded hover:text-dark hover:bg-primary"
+            (click)="onFiltersVisibilityChange()">
+      Filters
+    </button>
+
+    <h2>{{ title() }}</h2>
+  </div>
 
   <div class="inline-flex items-center">
     <svg class="fill-white mr-4 cursor-pointer" width="30px" height="30px" viewBox="0 0 16 16"
@@ -22,8 +29,8 @@
 </div>
 
 <div class="flex main-content">
-  <app-genres genresType="movie"/>
-  <div class="flex flex-col items-container">
+  <app-genres genresType="movie" [ngStyle]="{ 'display': areFiltersVisible() ? 'block' : 'none' }"/>
+  <div class="flex flex-col items-container" [ngClass]="{ 'without-filters': !areFiltersVisible(), 'with-filters': areFiltersVisible() }">
     @if(items().length) {
       <div [ngClass]="{ 'grid-view': viewType() === 'grid', 'list-view': viewType() === 'list' }">
         @for(item of items(); track item.id) {
@@ -50,7 +57,10 @@
     }
 
     @if(showLoadMore()) {
-      <button class="inline-flex text-lg text-dark py-2 px-4 mt-10 mx-auto bg-primary rounded" (click)="onLoadMore()">Load more</button>
+      <button class="inline-flex text-lg text-dark py-2 px-4 mt-10 mx-auto bg-primary rounded hover:bg-dark hover:text-primary hover: border hover: border-primary"
+              (click)="onLoadMore()">
+        Load more
+      </button>
     }
   </div>
 </div>

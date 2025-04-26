@@ -13,7 +13,13 @@
     }
 
     .items-container {
-      width: calc(100% - 250px - 40px);
+      &.without-filters {
+        width: 100%;
+      }
+
+      &.with-filters {
+        width: calc(100% - 250px - 40px);
+      }
 
       div {
         &.grid-view {
