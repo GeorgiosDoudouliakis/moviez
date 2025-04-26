@@ -10,7 +10,7 @@ enum LoadingState {
 }
 
 @Directive()
-export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnInit {
+export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit {
   public items: WritableSignal<ItemType[]> = signal<ItemType[]>([]);
   public loadingState: WritableSignal<LoadingState | null> = signal<LoadingState | null>(LoadingState.FETCHING);
   public showLoadMore: WritableSignal<boolean> = signal(false);
@@ -18,6 +18,7 @@ export abstract class MoviesTvSeriesActorsListDirective<ItemType> implements OnI
   public readonly LoadingState: typeof LoadingState = LoadingState;
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
+  public abstract title: string;
   public abstract readonly service: MoviesTvSeriesActorsListService<ItemType>;
 
   private _itemsEvent: Subject<number> = new Subject<number>();
