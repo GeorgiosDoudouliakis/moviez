@@ -5,10 +5,11 @@ import { CardComponent } from '@shared/components/card/card.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { LoadingState } from '@shared/enums/loading-state.enum';
 import { NgClass, NgStyle } from '@angular/common';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-movies',
-  imports: [GenresComponent, CardComponent, SkeletonComponent, NgClass, NgStyle],
+  imports: [GenresComponent, CardComponent, SkeletonComponent, LoaderComponent, NgClass, NgStyle],
   templateUrl: 'movies.component.html',
   styleUrl: '../../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss'
 })

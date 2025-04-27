@@ -58,3 +58,31 @@ ul {
   @apply text-secondary;
   @apply hover:underline;
 }
+
+.primary-btn {
+  @apply text-dark;
+  @apply py-2 px-4;
+  @apply bg-primary;
+  @apply rounded;
+  @apply border;
+  @apply border-primary;
+
+  &:hover {
+    @apply text-primary;
+    @apply bg-dark;
+  }
+}
+
+.secondary-btn {
+  @apply text-primary;
+  @apply py-2 px-4;
+  @apply bg-dark;
+  @apply rounded;
+  @apply border;
+  @apply border-primary;
+
+  &:hover {
+    @apply text-dark;
+    @apply bg-primary;
+  }
+}

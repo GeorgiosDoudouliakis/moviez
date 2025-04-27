@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center mb-10">
   <div class="inline-flex items-center">
-    <button class="text-base text-primary py-2 px-4 mr-6 border border-primary bg-dark rounded hover:text-dark hover:bg-primary"
+    <button class="text-base mr-6 secondary-btn"
             (click)="onFiltersVisibilityChange()">
       Filters
     </button>
@@ -53,14 +53,11 @@
     }
 
     @if(loadingState() === LoadingState.LOAD_MORE) {
-      <span class="text-base text-center text-white mt-10 mx-auto">Loading...</span>
+      <app-loader class="mt-8 mx-auto"/>
     }
 
     @if(showLoadMore()) {
-      <button class="inline-flex text-lg text-dark py-2 px-4 mt-10 mx-auto bg-primary rounded hover:bg-dark hover:text-primary hover: border hover: border-primary"
-              (click)="onLoadMore()">
-        Load more
-      </button>
+      <button class="inline-flex text-lg mt-8 mx-auto primary-btn" (click)="onLoadMore()">Load more</button>
     }
   </div>
 </div>
