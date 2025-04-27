@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
-import { GenresComponent } from '@shared/components/genres/genres.component';
+import { Component, inject } from '@angular/core';
+import { TopRatedTvSeriesService } from './service/top-rated-tv-series.service';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { TvSerie } from '@shared/interfaces/tv-series-response.interface';
 
 @Component({
   selector: 'app-top-rated-tv-series',
-  imports: [GenresComponent],
+  imports: [],
   templateUrl: './top-rated-tv-series.component.html',
-  styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss'
+  providers: [TopRatedTvSeriesService]
 })
-export class TopRatedTvSeriesComponent {}
+export class TopRatedTvSeriesComponent extends MoviesTvSeriesActorsDirective<TvSerie> {
+  public readonly service: TopRatedTvSeriesService = inject(TopRatedTvSeriesService);
+}

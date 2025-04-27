@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
-import { GenresComponent } from "@shared/components/genres/genres.component";
+import { Component, inject } from '@angular/core';
+import { AiringTodayTvSeriesService } from './service/airing-today-tv-series.service';
+import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { TvSerie } from '@shared/interfaces/tv-series-response.interface';
 
 @Component({
   selector: 'app-airing-today-tv-series',
-  imports: [GenresComponent],
+  imports: [],
   templateUrl: './airing-today-tv-series.component.html',
-  styleUrl: '../../../shared/directives/movies-tv-series/movies-tv-series.directive.scss'
+  providers: [AiringTodayTvSeriesService]
 })
-export class AiringTodayTvSeriesComponent {}
+export class AiringTodayTvSeriesComponent extends MoviesTvSeriesActorsDirective<TvSerie> {
+  public readonly service: AiringTodayTvSeriesService = inject(AiringTodayTvSeriesService);
+}

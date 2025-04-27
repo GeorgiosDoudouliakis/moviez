@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { ViewWithFiltersComponent } from '@shared/components/view-with-filters/view-with-filters.component';
 import { Tab } from '@shared/interfaces/tab.interface';
+import { TvSeriesMapperService } from '../shared/services/tv-series-mapper.service';
 
 @Component({
   selector: 'app-tv-series',
   imports: [ViewWithFiltersComponent],
   template: `
     <app-view-with-filters [tabs]="tabs"/>
-  `
+  `,
+  providers: [TvSeriesMapperService]
 })
 export class TvSeriesWrapperComponent {
   public tabs: Tab[] = [
