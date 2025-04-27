@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { AiringTodayTvSeriesService } from './service/airing-today-tv-series.service';
 import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
 import { TvSerie } from '@shared/interfaces/tv-series-response.interface';
+import { TvSeriesComponent } from '../shared/component/tv-series.component';
 
 @Component({
   selector: 'app-airing-today-tv-series',
-  imports: [],
+  imports: [TvSeriesComponent],
   templateUrl: './airing-today-tv-series.component.html',
   providers: [AiringTodayTvSeriesService]
 })
