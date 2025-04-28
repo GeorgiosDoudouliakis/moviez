@@ -7,60 +7,87 @@ export const routes: Routes = [
     },
     {
         path: "movies",
-        loadComponent: () => import("./pages/movies/component/movies-wrapper.component").then(c => c.MoviesWrapperComponent),
         children: [
           {
-            path: "now-playing",
-            loadComponent: () => import("./pages/movies/now-playing-movies/now-playing-movies.component").then(c => c.NowPlayingMoviesComponent)
-          },
-          {
-            path: "popular",
-            loadComponent: () => import("./pages/movies/popular-movies/popular-movies.component").then(c => c.PopularMoviesComponent)
-          },
-          {
-            path: "top-rated",
-            loadComponent: () => import("./pages/movies/top-rated-movies/top-rated-movies.component").then(c => c.TopRatedMoviesComponent)
-          },
-          {
-            path: "upcoming",
-            loadComponent: () => import("./pages/movies/upcoming-movies/upcoming-movies.component").then(c => c.UpcomingMoviesComponent)
-          },
-          {
             path: "",
-            redirectTo: "now-playing",
-            pathMatch: "full"
+            loadComponent: () => import("./pages/movies/component/movies-wrapper.component").then(c => c.MoviesWrapperComponent),
+            children: [
+              {
+                path: "now-playing",
+                loadComponent: () => import("./pages/movies/now-playing-movies/now-playing-movies.component").then(c => c.NowPlayingMoviesComponent)
+              },
+              {
+                path: "popular",
+                loadComponent: () => import("./pages/movies/popular-movies/popular-movies.component").then(c => c.PopularMoviesComponent)
+              },
+              {
+                path: "top-rated",
+                loadComponent: () => import("./pages/movies/top-rated-movies/top-rated-movies.component").then(c => c.TopRatedMoviesComponent)
+              },
+              {
+                path: "upcoming",
+                loadComponent: () => import("./pages/movies/upcoming-movies/upcoming-movies.component").then(c => c.UpcomingMoviesComponent)
+              },
+              {
+                path: "",
+                redirectTo: "now-playing",
+                pathMatch: "full"
+              }
+            ]
+          },
+          {
+            path: ":movie",
+            loadComponent: () => import("./pages/movies/movie/movie.component").then(c => c.MovieComponent)
           }
         ]
     },
     {
         path: "tv-series",
-        loadComponent: () => import("./pages/tv-series/component/tv-series-wrapper.component").then(c => c.TvSeriesWrapperComponent),
         children: [
           {
-            path: "airing-today",
-            loadComponent: () => import("./pages/tv-series/airing-today-tv-series/airing-today-tv-series.component").then(c => c.AiringTodayTvSeriesComponent)
-          },
-          {
-            path: "on-the-air",
-            loadComponent: () => import("./pages/tv-series/on-the-air-tv-series/on-the-air-tv-series.component").then(c => c.OnTheAirTvSeriesComponent)
-          },
-          {
-            path: "popular",
-            loadComponent: () => import("./pages/tv-series/popular-tv-series/popular-tv-series.component").then(c => c.PopularTvSeriesComponent)
-          },
-          {
-            path: "top-rated",
-            loadComponent: () => import("./pages/tv-series/top-rated-tv-series/top-rated-tv-series.component").then(c => c.TopRatedTvSeriesComponent)
-          },
-          {
             path: "",
-            redirectTo: "airing-today",
-            pathMatch: "full"
+            loadComponent: () => import("./pages/tv-series/component/tv-series-wrapper.component").then(c => c.TvSeriesWrapperComponent),
+            children: [
+              {
+                path: "airing-today",
+                loadComponent: () => import("./pages/tv-series/airing-today-tv-series/airing-today-tv-series.component").then(c => c.AiringTodayTvSeriesComponent)
+              },
+              {
+                path: "on-the-air",
+                loadComponent: () => import("./pages/tv-series/on-the-air-tv-series/on-the-air-tv-series.component").then(c => c.OnTheAirTvSeriesComponent)
+              },
+              {
+                path: "popular",
+                loadComponent: () => import("./pages/tv-series/popular-tv-series/popular-tv-series.component").then(c => c.PopularTvSeriesComponent)
+              },
+              {
+                path: "top-rated",
+                loadComponent: () => import("./pages/tv-series/top-rated-tv-series/top-rated-tv-series.component").then(c => c.TopRatedTvSeriesComponent)
+              },
+              {
+                path: "",
+                redirectTo: "airing-today",
+                pathMatch: "full"
+              }
+            ]
+          },
+          {
+            path: ":tvSerie",
+            loadComponent: () => import("./pages/tv-series/tv-serie/tv-serie.component").then(c => c.TvSerieComponent)
           }
         ]
     },
     {
         path: "actors",
-        loadComponent: () => import("./pages/actors/actors/actors.component").then(c => c.ActorsComponent)
+        children: [
+          {
+            path: "",
+            loadComponent: () => import("./pages/actors/actors/actors.component").then(c => c.ActorsComponent),
+          },
+          {
+            path: ":actor",
+            loadComponent: () => import("./pages/actors/actor/actor.component").then(c => c.ActorComponent)
+          }
+        ]
     }
 ];
