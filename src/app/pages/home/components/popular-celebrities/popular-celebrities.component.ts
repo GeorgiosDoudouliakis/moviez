@@ -1,5 +1,5 @@
 import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
-import { PopularCelebritiesService } from "../../services/popular-celebrities.service";
+import { PopularCelebritiesService } from "./service/popular-celebrities.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { catchError, tap, throwError } from "rxjs";
 import { PersonWithPath } from "@shared/interfaces/persons-response.interface";

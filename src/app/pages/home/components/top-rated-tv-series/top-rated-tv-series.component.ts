@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TopRatedDirective } from "../../shared/directives/top-rated.directive";
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
-import { TopRatedTvSeriesService } from "../../services/top-rated-tv-series.service";
+import { TopRatedTvSeriesService } from "./service/top-rated-tv-series.service";
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
 import { CardComponent } from "@shared/components/card/card.component";
 

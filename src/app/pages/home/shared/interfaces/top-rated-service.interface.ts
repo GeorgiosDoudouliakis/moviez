@@ -1,6 +1,6 @@
-import { TopRatedItemModel } from "./top-rated-item-model.interface";
 import { Observable } from "rxjs";
+import { Card } from '@shared/components/card/interface/card.interface';
 
 export interface TopRatedService {
-    topRatedItems$: () => Observable<TopRatedItemModel[]>;
+    topRatedItems$: () => Observable<Card[]>;
 }

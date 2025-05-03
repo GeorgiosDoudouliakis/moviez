@@ -4,10 +4,15 @@ import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-se
 import { BaseResponse } from '@shared/interfaces/base-response.interface';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { LoadingState } from '../../enums/loading-state.enum';
+import { Card } from '@shared/components/card/interface/card.interface';
 
 @Directive()
-export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit {
-  public items: WritableSignal<ItemType[]> = signal<ItemType[]>([]);
+export abstract class MoviesTvSeriesActorsDirective implements OnInit {
+  public hasFilters: WritableSignal<boolean> = signal(true);
+  public hasSwitchViewMode: WritableSignal<boolean> = signal(true);
+  public viewType: WritableSignal<"grid" | "list"> = signal("grid");
+  public areFiltersVisible: WritableSignal<boolean> = signal(false);
+  public items: WritableSignal<Card[]> = signal<Card[]>([]);
   public loadingState: WritableSignal<LoadingState | null> = signal<LoadingState | null>(LoadingState.FETCHING);
   public showLoadMore: WritableSignal<boolean> = signal(false);
   public readonly LoadingState: typeof LoadingState = LoadingState;
@@ -15,13 +20,14 @@ export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit 
   private _totalPages: WritableSignal<number> = signal<number>(1);
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
-  public abstract readonly service: MoviesTvSeriesActorsListService<ItemType>;
+  public abstract title: string;
+  public abstract readonly service: MoviesTvSeriesActorsListService;
 
   private _itemsEvent: WritableSignal<number> = signal<number>(this._currentPage());
-  private _items$: Observable<BaseResponse<ItemType>> = toObservable(this._itemsEvent).pipe(
+  private _items$: Observable<BaseResponse<Card>> = toObservable(this._itemsEvent).pipe(
     tap(() => this.loadingState() === LoadingState.FETCHING ? this.items.set([]) : this.items.set([...this.items()])),
     switchMap((page: number) => this.service.items$(page)),
-    tap((response: BaseResponse<ItemType>) => {
+    tap((response: BaseResponse<Card>) => {
       this.items.set([...this.items(), ...response.results]);
       this._totalPages.set(response.total_pages);
       this.showLoadMore.set(this._currentPage() <= this._totalPages());
@@ -36,6 +42,14 @@ export abstract class MoviesTvSeriesActorsDirective<ItemType> implements OnInit 
 
   public ngOnInit(): void {
     this._items$.subscribe();
+  }
+
+  public onFiltersVisibilityChange(): void {
+    this.areFiltersVisible.set(!this.areFiltersVisible());
+  }
+
+  public onViewTypeChange(type: "grid" | "list"): void {
+    this.viewType.set(type);
   }
 
   public onLoadMore(): void {

@@ -1,15 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { UpcomingMoviesService } from './service/upcoming-movies.service';
-import { Movie } from '@shared/interfaces/movies-response.interface';
 import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
-import { MoviesComponent } from '../shared/component/movies.component';
+import { GenresComponent } from '@shared/components/genres/genres.component';
+import { NgClass, NgStyle } from '@angular/common';
+import { CardComponent } from '@shared/components/card/card.component';
+import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-upcoming-movies',
-  imports: [MoviesComponent],
-  templateUrl: './upcoming-movies.component.html',
+  imports: [GenresComponent, NgClass, CardComponent, SkeletonComponent, LoaderComponent, NgStyle],
+  templateUrl: '../../../shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive.html',
+  styleUrl: '../../../shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive.scss',
   providers: [UpcomingMoviesService]
 })
-export class UpcomingMoviesComponent extends MoviesTvSeriesActorsDirective<Movie> {
+export class UpcomingMoviesComponent extends MoviesTvSeriesActorsDirective {
+  public title: string = 'UPCOMING MOVIES';
   public readonly service: UpcomingMoviesService = inject(UpcomingMoviesService);
 }

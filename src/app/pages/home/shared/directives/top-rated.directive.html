@@ -4,9 +4,7 @@
     @if(!loading()) {
         <div class="overflow-x-auto top-rated-items-container">
             @for(item of items(); track item.id) {
-                <app-card [title]="item.title" [imageSrc]="item.image" [imageAlt]="item.title + ' poster'" [topRightContent]="item.rate.toString()" [cardLink]="item.path">
-                    <span description class="text-base text-darker-white">{{ item.releaseDate }}</span>
-                </app-card>
+                <app-card [card]="item"/>
             }
         </div>
     } @else {

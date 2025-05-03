@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
+  @apply py-8;
 
   svg.active {
     @apply fill-primary;
