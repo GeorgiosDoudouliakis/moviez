@@ -15,7 +15,7 @@ export class TvSeriesMapperService {
       results: tvSeries.results.map((tvSerie: TvSerie) => ({
         id: tvSerie.id,
         title: tvSerie.name,
-        imageSrc: mapImagePath(185, tvSerie.poster_path),
+        imageSrc: tvSerie.poster_path ? mapImagePath(185, tvSerie.poster_path) : null,
         topRightContent: `${mapVoteAverage(tvSerie.vote_average)}`,
         details: [
           `${mapDate(tvSerie.first_air_date)}`,

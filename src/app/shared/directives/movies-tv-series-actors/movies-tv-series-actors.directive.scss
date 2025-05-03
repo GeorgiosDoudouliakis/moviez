@@ -25,18 +25,14 @@
       div {
         &.grid-view {
           display: grid;
-          grid-gap: 25px;
-          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 35px;
+          grid-template-columns: repeat(3, 1fr);
 
           @media screen and (min-width: 960px) {
-            grid-template-columns: repeat(3, 1fr);
-          }
-
-          @media screen and (min-width: 1280px) {
             grid-template-columns: repeat(4, 1fr);
           }
 
-          @media screen and (min-width: 1440px) {
+          @media screen and (min-width: 1280px) {
             grid-template-columns: repeat(5, 1fr);
           }
         }

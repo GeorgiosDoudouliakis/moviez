@@ -19,7 +19,7 @@ export class ActorsService implements MoviesTvSeriesActorsListService {
         results: res.results.map((person: Person) => ({
           id: person.id,
           title: person.name,
-          imageSrc: mapImagePath(185, person.profile_path),
+          imageSrc: person.profile_path ? mapImagePath(185, person.profile_path) : null,
           topRightContent: null,
           details: [],
           path: `/actors/${EncodingUtilities.encodeIdNameParam(person.id, person.name)}`

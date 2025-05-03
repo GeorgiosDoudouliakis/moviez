@@ -6,7 +6,8 @@ import { Card } from '@shared/components/card/interface/card.interface';
 @Component({
   selector: 'app-card',
   imports: [NgClass, RouterLink],
-  templateUrl: './card.component.html'
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.scss'
 })
 export class CardComponent {
   public card: InputSignal<Card> = input.required<Card>();

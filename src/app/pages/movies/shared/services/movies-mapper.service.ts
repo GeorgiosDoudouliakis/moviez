@@ -15,7 +15,7 @@ export class MoviesMapperService {
       results: movies.results.map((movie: Movie) => ({
         id: movie.id,
         title: movie.title,
-        imageSrc: mapImagePath(185, movie.poster_path),
+        imageSrc: movie.poster_path ? mapImagePath(185, movie.poster_path) : null,
         topRightContent: `${mapVoteAverage(movie.vote_average)}`,
         details: [
           `${mapDate(movie.release_date)}`,
