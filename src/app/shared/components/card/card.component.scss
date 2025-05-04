@@ -1,5 +1,10 @@
 :host {
-  .img-container {
+  .img-container-vertical {
     height: 250px;
+  }
+
+  .img-container-horizontal {
+    width: 180px;
+    height: 200px;
   }
 }

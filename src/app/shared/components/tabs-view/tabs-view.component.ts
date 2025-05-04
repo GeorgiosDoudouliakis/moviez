@@ -3,11 +3,11 @@ import { RouterModule } from '@angular/router';
 import { Tab } from '@shared/interfaces/tab.interface';
 
 @Component({
-  selector: 'app-view-with-filters',
+  selector: 'app-tabs-view',
   imports: [RouterModule],
-  templateUrl: './view-with-filters.component.html',
-  styleUrl: './view-with-filters.component.scss'
+  templateUrl: './tabs-view.component.html',
+  styleUrl: './tabs-view.component.scss'
 })
-export class ViewWithFiltersComponent {
+export class TabsViewComponent {
   public tabs: InputSignal<Tab[]> = input.required<Tab[]>();
 }

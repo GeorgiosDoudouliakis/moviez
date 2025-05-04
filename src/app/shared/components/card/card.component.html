@@ -1,7 +1,6 @@
-<a class="flex w-full" [routerLink]="card().path"
-     [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }">
+<div class="flex w-full" [ngClass]="{ 'flex-col': direction() === 'vertical', 'flex-row': direction() === 'horizontal' }">
     <div class="relative">
-      <div class="img-container">
+      <div [ngClass]="{ 'img-container-vertical': direction() === 'vertical', 'img-container-horizontal': direction() === 'horizontal' }">
           @if(card().imageSrc) {
               <img class="responsive-img" [src]="card().imageSrc" [alt]="card().title" [ngClass]="{ 'rounded-t-md': direction() === 'vertical', 'rounded-md': direction() === 'horizontal' }">
           } @else {
@@ -16,10 +15,11 @@
       }
     </div>
     <div class="flex flex-col p-4 bg-lighter-dark w-full"
-         [ngClass]="{ 'rounded-b-md': direction() === 'vertical', 'rounded-e-md': direction() === 'horizontal' }">
-        <span class="font-bold text-lg text-white" [class.mb-3]="card().details.length" role="heading" [attr.aria-level]="titleAriaLevel()">{{ card().title }}</span>
-        @for(detail of card().details; let i = $index; track i) {
-          <span class="text-base text-darker-white">{{ detail }}</span>
-        }
+         [ngClass]="{ 'items-center rounded-b-md': direction() === 'vertical', 'rounded-e-md': direction() === 'horizontal' }">
+      <span class="font-bold text-lg text-white" [ngClass]="{ 'text-center': direction() === 'vertical', 'mb-3': card().details.length }" role="heading" [attr.aria-level]="titleAriaLevel()">{{ card().title }}</span>
+      @for(detail of card().details; let i = $index; track i) {
+        <span class="text-base text-darker-white">{{ detail }}</span>
+      }
+      <a class="text-sm link mt-3" [routerLink]="card().path">View more</a>
     </div>
-</a>
+</div>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ViewWithFiltersComponent } from '@shared/components/view-with-filters/view-with-filters.component';
+import { TabsViewComponent } from '@shared/components/tabs-view/tabs-view.component';
 import { Tab } from '@shared/interfaces/tab.interface';
 import { MoviesMapperService } from '../shared/services/movies-mapper.service';
 
 @Component({
   selector: 'app-movies',
-  imports: [ViewWithFiltersComponent],
+  imports: [TabsViewComponent],
   template: `
-    <app-view-with-filters [tabs]="tabs"/>
+    <app-tabs-view [tabs]="tabs"/>
   `,
   providers: [MoviesMapperService]
 })
