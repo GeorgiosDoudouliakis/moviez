@@ -1,0 +1,66 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  @apply py-8;
+
+  svg.active {
+    @apply fill-primary;
+  }
+
+  .main-content {
+    .filters-container {
+      width: 250px;
+      margin-right: 40px;
+    }
+
+    .items-container {
+      &.without-filters {
+        width: 100%;
+      }
+
+      &.with-filters {
+        width: calc(100% - 250px - 40px);
+      }
+
+      div {
+        &.grid-view {
+          display: grid;
+          grid-gap: 35px;
+
+          &.grid-view-without-filters {
+            grid-template-columns: repeat(3, 1fr);
+
+            @media screen and (min-width: 960px) {
+              grid-template-columns: repeat(4, 1fr);
+            }
+
+            @media screen and (min-width: 1280px) {
+              grid-template-columns: repeat(5, 1fr);
+            }
+          }
+
+          &.grid-view-with-filters {
+            grid-template-columns: repeat(2, 1fr);
+
+            @media screen and (min-width: 960px) {
+              grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media screen and (min-width: 1280px) {
+              grid-template-columns: repeat(4, 1fr);
+            }
+          }
+        }
+
+        &.list-view {
+          display: flex;
+          flex-direction: column;
+
+          app-card:not(:last-of-type) {
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+}

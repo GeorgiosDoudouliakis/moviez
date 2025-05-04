@@ -4,7 +4,7 @@
       <button class="text-base mr-6 secondary-btn" (click)="onFiltersVisibilityChange()">Filters</button>
     }
 
-    <h2>{{ title }}</h2>
+    <h2>{{ title() }}</h2>
   </div>
 
   @if(hasSwitchViewMode()) {
@@ -31,11 +31,14 @@
 
 <div class="flex main-content">
   @if(hasFilters()) {
-    <app-genres genresType="movie" [ngStyle]="{ 'display': areFiltersVisible() ? 'block' : 'none' }"/>
+    <div class="filters-container" [ngStyle]="{ 'display': areFiltersVisible() ? 'block' : 'none' }">
+      <ng-content select="[filters]"></ng-content>
+    </div>
   }
+
   <div class="flex flex-col items-container" [ngClass]="{ 'without-filters': !areFiltersVisible(), 'with-filters': areFiltersVisible() }">
     @if(items().length) {
-      <div [ngClass]="{ 'grid-view': viewType() === 'grid', 'list-view': viewType() === 'list' }">
+      <div [ngClass]="{ 'grid-view': viewType() === 'grid', 'grid-view-with-filters': viewType() === 'grid' && areFiltersVisible(), 'grid-view-without-filters': viewType() === 'grid' && !areFiltersVisible(), 'list-view': viewType() === 'list' }">
         @for(item of items(); track item.id) {
           <app-card [direction]=" viewType() === 'grid' ? 'vertical' : 'horizontal'" [card]="item" />
         }

@@ -8,14 +8,9 @@ import { Card } from '@shared/components/card/interface/card.interface';
 
 @Directive()
 export abstract class MoviesTvSeriesActorsDirective implements OnInit {
-  public hasFilters: WritableSignal<boolean> = signal(true);
-  public hasSwitchViewMode: WritableSignal<boolean> = signal(true);
-  public viewType: WritableSignal<"grid" | "list"> = signal("grid");
-  public areFiltersVisible: WritableSignal<boolean> = signal(false);
   public items: WritableSignal<Card[]> = signal<Card[]>([]);
   public loadingState: WritableSignal<LoadingState | null> = signal<LoadingState | null>(LoadingState.FETCHING);
   public showLoadMore: WritableSignal<boolean> = signal(false);
-  public readonly LoadingState: typeof LoadingState = LoadingState;
   private _currentPage: WritableSignal<number> = signal<number>(1);
   private _totalPages: WritableSignal<number> = signal<number>(1);
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
@@ -42,14 +37,6 @@ export abstract class MoviesTvSeriesActorsDirective implements OnInit {
 
   public ngOnInit(): void {
     this._items$.subscribe();
-  }
-
-  public onFiltersVisibilityChange(): void {
-    this.areFiltersVisible.set(!this.areFiltersVisible());
-  }
-
-  public onViewTypeChange(type: "grid" | "list"): void {
-    this.viewType.set(type);
   }
 
   public onLoadMore(): void {
