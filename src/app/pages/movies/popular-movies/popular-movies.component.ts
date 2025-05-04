@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PopularMoviesService } from './service/popular-movies.service';
-import { MoviesTvSeriesActorsDirective } from '@shared/directives/movies-tv-series-actors/movies-tv-series-actors.directive';
+import { ListViewDirective } from '@shared/components/list-view/directive/list-view.directive';
 import { ListViewComponent } from '@shared/components/list-view/list-view.component';
 import { GenresComponent } from '@shared/components/genres/genres.component';
 
@@ -10,7 +10,7 @@ import { GenresComponent } from '@shared/components/genres/genres.component';
   templateUrl: '../shared/directives/movies.directive.html',
   providers: [PopularMoviesService]
 })
-export class PopularMoviesComponent extends MoviesTvSeriesActorsDirective {
+export class PopularMoviesComponent extends ListViewDirective {
   public title: string = "POPULAR MOVIES";
   public readonly service: PopularMoviesService = inject(PopularMoviesService);
 }

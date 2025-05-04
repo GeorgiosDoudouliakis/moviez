@@ -3,11 +3,11 @@ import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-series-actors-list-service.interface';
 import { BaseResponse } from '@shared/interfaces/base-response.interface';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { LoadingState } from '../../enums/loading-state.enum';
+import { LoadingState } from '../../../enums/loading-state.enum';
 import { Card } from '@shared/components/card/interface/card.interface';
 
 @Directive()
-export abstract class MoviesTvSeriesActorsDirective implements OnInit {
+export abstract class ListViewDirective implements OnInit {
   public items: WritableSignal<Card[]> = signal<Card[]>([]);
   public loadingState: WritableSignal<LoadingState | null> = signal<LoadingState | null>(LoadingState.FETCHING);
   public showLoadMore: WritableSignal<boolean> = signal(false);
