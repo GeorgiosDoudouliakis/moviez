@@ -5,28 +5,18 @@ import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-se
 import { Person } from '@shared/interfaces/persons-response.interface';
 import { BaseResponse } from '@shared/interfaces/base-response.interface';
 import { Card } from '@shared/components/card/interface/card.interface';
-import { mapImagePath } from '@core/helpers/map-image-path.helper';
-import { EncodingUtilities } from '@core/utilities/encoding.utilities';
+import { ActorsMapperService } from './actors-mapper.service';
 
 @Injectable()
 export class ActorsService implements MoviesTvSeriesActorsListService {
-  constructor(private readonly _httpClient: HttpClient) {}
+  constructor(
+    private readonly _httpClient: HttpClient,
+    private readonly _mapperService: ActorsMapperService
+  ) {}
 
   public items$(page: number): Observable<BaseResponse<Card>> {
     return this._httpClient.get<BaseResponse<Person>>(`https://api.themoviedb.org/3/person/popular?api_key=803a77b2748b6f5d6363b4fa92bfd870&language=en-US&page=${page}`).pipe(
-      map((res: BaseResponse<Person>) => ({
-        page: res.page,
-        results: res.results.map((person: Person) => ({
-          id: person.id,
-          title: person.name,
-          imageSrc: person.profile_path ? mapImagePath(185, person.profile_path) : null,
-          topRightContent: null,
-          details: [],
-          path: `/actors/${EncodingUtilities.encodeIdNameParam(person.id, person.name)}`
-        })),
-        total_pages: res.total_pages,
-        total_results: res.total_results
-      }))
+      map((res: BaseResponse<Person>) => this._mapperService.mapActors(res))
     )
   }
 }

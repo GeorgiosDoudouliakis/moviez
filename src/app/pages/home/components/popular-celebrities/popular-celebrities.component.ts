@@ -1,18 +1,19 @@
 import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
-import { PopularCelebritiesService } from "./service/popular-celebrities.service";
+import { PopularCelebritiesService } from "./services/popular-celebrities.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { catchError, tap, throwError } from "rxjs";
 import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
 import { RouterLink } from '@angular/router';
+import { PopularCelebritiesMapperService } from './services/popular-celebrities-mapper.service';
 
 @Component({
   selector: 'app-popular-celebrities',
   imports: [RouterLink, SkeletonComponent, SectionHeaderComponent],
   templateUrl: './popular-celebrities.component.html',
   styleUrl: './popular-celebrities.component.scss',
-  providers: [PopularCelebritiesService]
+  providers: [PopularCelebritiesService, PopularCelebritiesMapperService]
 })
 export class PopularCelebritiesComponent implements OnInit {
   public popularCelebrities: WritableSignal<PersonWithPath[]> = signal<PersonWithPath[]>([]);
