@@ -10,21 +10,21 @@
   }
 
   .img-container {
-    width: 200px;
+    width: 280px;
   }
 
   .general-info {
-    margin-right: 10px;
+    width: 280px;
+    margin-right: 40px;
     order: 2;
 
     @media(min-width: 1024px) {
       order: 0;
-      width: 300px;
     }
   }
 
   .more-info {
-    width: calc(100% - 210px);
+    width: calc(100% - 320px);
   }
 
   app-loader {
