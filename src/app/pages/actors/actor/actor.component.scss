@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+
+  .actor-container {
+    flex-direction: column;
+
+    @media(min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  .img-container {
+    width: 200px;
+  }
+
+  .general-info {
+    margin-right: 10px;
+    order: 2;
+
+    @media(min-width: 1024px) {
+      order: 0;
+      width: 300px;
+    }
+  }
+
+  .more-info {
+    width: calc(100% - 210px);
+  }
+
+  app-loader {
+    @apply py-8;
+    @apply mx-auto;
+  }
+}

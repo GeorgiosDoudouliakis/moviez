@@ -1,1 +1,65 @@
-<p>actor works!</p>
+@if(!loading()) {
+  <div class="flex justify-between py-8 w-full actor-container">
+    <div class="flex flex-col general-info">
+      <div class="mb-8 rounded-md img-container">
+        @if(actor()?.profile_path) {
+          <img class="responsive-img rounded-md" [src]="actor()?.profile_path" [alt]="actor()?.name" width="250"/>
+        } @else {
+          <img class="responsive-img rounded-md" src="assets/images/noImageAvailable.jpg" alt="No image available" />
+        }
+      </div>
+
+      <h3 class="font-semibold text-xl mb-6">Personal Information</h3>
+
+      @if(actorDetails()?.known_for_department) {
+        <span class="text-xl mb-1">Known for department</span>
+        <span class="text-base mb-4 text-darker-white">{{ actorDetails()?.known_for_department }}</span>
+      }
+
+      @if(actorDetails()?.birthday) {
+        <span class="text-xl mb-1">Birth Day</span>
+        <span class="text-base mb-4 text-darker-white">{{ actorDetails()?.birthday }}</span>
+      }
+
+      @if(actorDetails()?.deathday) {
+        <span class="text-xl mb-1">Death Day</span>
+        <span class="text-base mb-4 text-darker-white">{{ actorDetails()?.deathday }}</span>
+      }
+
+      @if(actorDetails()?.place_of_birth) {
+        <span class="text-xl mb-1">Place of birth</span>
+        <span class="text-base mb-4 text-darker-white">{{ actorDetails()?.place_of_birth }}</span>
+      }
+
+      @if(actorDetails()?.also_known_as) {
+        <span class="text-xl mb-1">Also known as</span>
+        <ul>
+          @for(known of actorDetails()?.also_known_as; let i = $index; track i) {
+            <li class="text-darker-white">{{ known }}</li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div class="more-info">
+      <div class="flex justify-between items-center mb-10">
+        <h2>{{ actorDetails()?.name }}</h2>
+        <a routerLink="/actors" class="link">All actors</a>
+      </div>
+
+      @if(actorDetails()?.biography) {
+        <span class="inline-flex text-xl mb-6">Biography</span>
+        <p class="mb-10 text-darker-white">{{ actorDetails()?.biography }}</p>
+      }
+
+      @if(actor()?.known_for.length) {
+        <span class="inline-flex text-xl mb-6">Known for</span>
+        <div>
+
+        </div>
+      }
+    </div>
+  </div>
+} @else {
+  <app-loader/>
+}
