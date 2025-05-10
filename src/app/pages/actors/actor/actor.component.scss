@@ -47,6 +47,12 @@
     }
   }
 
+  .known-for-container {
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   app-loader {
     @apply py-8;
     @apply mx-auto;
