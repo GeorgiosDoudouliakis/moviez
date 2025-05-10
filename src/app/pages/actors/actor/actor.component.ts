@@ -1,5 +1,5 @@
-import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import { Component, DestroyRef, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { catchError, forkJoin, tap, throwError } from 'rxjs';
 import { ActorService } from './service/actor.service';
 import { Person } from '@shared/interfaces/persons-response.interface';
@@ -21,15 +21,15 @@ export class ActorComponent implements OnInit {
   public actor: WritableSignal<Person | null> = signal(null);
   public actorDetails: WritableSignal<PersonDetails | null> = signal(null);
   public loading: WritableSignal<boolean> = signal(true);
+  public actorIdName: InputSignal<string> = input.required<string>();
 
   constructor(
     private readonly _service: ActorService,
-    private readonly _route: ActivatedRoute,
     private readonly _destroyRef: DestroyRef
   ) {}
 
   public ngOnInit(): void {
-    const paramsArr: string[] = this._route.snapshot.params["actor"].split("-");
+    const paramsArr: string[] = this.actorIdName().split("-");
 
     forkJoin({
       actor: this._service.actor$(paramsArr.slice(1).join(" ")),

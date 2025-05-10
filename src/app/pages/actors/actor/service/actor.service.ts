@@ -15,7 +15,7 @@ export class ActorService {
       map((res: BaseResponse<Person>) => res.results[0]),
       map((person: Person) => ({
         ...person,
-        profile_path: mapImagePath(185, person.profile_path)
+        profile_path: person.profile_path ? mapImagePath(185, person.profile_path) : ""
       }))
     );
   }

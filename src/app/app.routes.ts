@@ -36,7 +36,7 @@ export const routes: Routes = [
             ]
           },
           {
-            path: ":movie",
+            path: ":movieIdName",
             loadComponent: () => import("./pages/movies/movie/movie.component").then(c => c.MovieComponent)
           }
         ]
@@ -72,7 +72,7 @@ export const routes: Routes = [
             ]
           },
           {
-            path: ":tvSerie",
+            path: ":tvSerieIdName",
             loadComponent: () => import("./pages/tv-series/tv-serie/tv-serie.component").then(c => c.TvSerieComponent)
           }
         ]
@@ -85,7 +85,7 @@ export const routes: Routes = [
             loadComponent: () => import("./pages/actors/actors/actors.component").then(c => c.ActorsComponent),
           },
           {
-            path: ":actor",
+            path: ":actorIdName",
             loadComponent: () => import("./pages/actors/actor/actor.component").then(c => c.ActorComponent)
           }
         ]

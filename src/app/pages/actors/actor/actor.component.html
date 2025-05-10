@@ -1,6 +1,6 @@
 @if(!loading()) {
-  <div class="flex justify-between py-8 w-full actor-container">
-    <div class="flex flex-col general-info">
+  <div class="py-8 w-full actor-container">
+    <div class="personal-info">
       <div class="rounded-t-md img-container">
         @if(actor()?.profile_path) {
           <img class="responsive-img rounded-t-md" [src]="actor()?.profile_path" [alt]="actor()?.name" width="250"/>
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="more-info">
+    <div>
       <div class="flex justify-between items-center mb-8">
         <h2>{{ actorDetails()?.name }}</h2>
         <a routerLink="/actors" class="link">All actors</a>
