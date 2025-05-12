@@ -86,3 +86,10 @@ ul {
     @apply bg-primary;
   }
 }
+
+.tag {
+  @apply text-sm;
+  @apply px-4 py-1;
+  @apply text-dark bg-secondary;
+  @apply rounded-2xl;
+}

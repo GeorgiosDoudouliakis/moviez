@@ -1,9 +1,8 @@
-import { Component, DestroyRef, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { catchError, forkJoin, tap, throwError } from 'rxjs';
+import { catchError, forkJoin, take, tap, throwError } from 'rxjs';
 import { ActorService } from './services/actor.service';
 import { PersonDetails } from './interfaces/people-response.interface';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { CardComponent } from '@shared/components/card/card.component';
 import { Card } from '@shared/components/card/interface/card.interface';
@@ -26,10 +25,7 @@ export class ActorComponent implements OnInit {
   public loading: WritableSignal<boolean> = signal(true);
   public actorIdName: InputSignal<string> = input.required<string>();
 
-  constructor(
-    private readonly _service: ActorService,
-    private readonly _destroyRef: DestroyRef
-  ) {}
+  constructor(private readonly _service: ActorService) {}
 
   public ngOnInit(): void {
     const paramsArr: string[] = this.actorIdName().split("-");
@@ -47,7 +43,7 @@ export class ActorComponent implements OnInit {
         this.loading.set(false);
         return throwError(() => error);
       }),
-      takeUntilDestroyed(this._destroyRef)
+      take(1)
     ).subscribe();
   }
 }

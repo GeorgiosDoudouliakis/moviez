@@ -1,1 +1,51 @@
-<p>movie works!</p>
+@if(!loading()) {
+  <div class="flex py-8 w-full">
+    <div class="rounded-md img-container">
+      @if(movieDetails()?.poster_path) {
+        <img class="responsive-img rounded-md" [src]="movieDetails()?.poster_path" [alt]="movieDetails()?.title" />
+      } @else {
+        <img class="responsive-img rounded-md" src="assets/images/noImageAvailable.jpg" alt="No image available" />
+      }
+    </div>
+
+    <div class="info">
+      <div class="flex justify-between items-center mb-8">
+        <h2>{{ movieDetails()?.title }}</h2>
+        <a routerLink="/movies" class="link">All movies</a>
+      </div>
+
+      <div class="flex flex-col gap-4 mb-6">
+        <span class="text-lg text-white">Release date</span>
+        <span class="text-lg text-darker-white">{{ movieDetails()?.release_date }}</span>
+      </div>
+
+      @if(movieDetails()?.genres.length) {
+        <div class="flex flex-col gap-4 mb-6">
+          <span class="text-lg text-white">Genres</span>
+          <ul class="flex flex-wrap gap-3">
+            @for(genre of movieDetails()?.genres; track genre.id) {
+              <li class="tag">{{ genre.name }}</li>
+            }
+          </ul>
+        </div>
+      }
+
+      @if(movieDetails()?.production_companies.length) {
+        <div class="flex flex-col gap-4">
+          <span class="text-lg text-white">Production companies</span>
+          <ul class="flex flex-wrap gap-3">
+            @for(company of movieDetails()?.production_companies; track company.id) {
+              <li class="tag">{{ company.name }}</li>
+            }
+          </ul>
+        </div>
+      }
+
+      @if(movieDetails()?.homepage) {
+        <a [href]="movieDetails()?.homepage" class="inline-flex text-base link mt-6" target="_blank" rel="noreferrer">View homepage</a>
+      }
+    </div>
+  </div>
+} @else {
+  <app-loader/>
+}

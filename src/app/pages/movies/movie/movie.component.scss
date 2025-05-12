@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+
+  .img-container {
+    width: 200px;
+    height: 340px;
+    margin: 0 40px 0 0;
+
+    @media(min-width: 1024px) {
+      width: 240px;
+      height: auto;
+    }
+
+    @media(min-width: 1280px) {
+      width: 280px;
+    }
+  }
+
+  .info {
+    width: calc(100% - 240px);
+
+    @media(min-width: 1024px) {
+      width: calc(100% - 280px);
+    }
+
+    @media(min-width: 1280px) {
+      width: calc(100% - 320px);
+    }
+  }
+
+  app-loader {
+    @apply py-8;
+    @apply mx-auto;
+  }
+}
