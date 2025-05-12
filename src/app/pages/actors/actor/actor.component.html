@@ -3,14 +3,14 @@
     <div class="personal-info">
       <div class="rounded-t-md img-container">
         @if(actorDetails()?.profile_path) {
-          <img class="responsive-img rounded-t-md" [src]="actorDetails()?.profile_path" [alt]="actorDetails()?.name" width="250"/>
+          <img class="responsive-img rounded-t-md" [src]="actorDetails()?.profile_path" [alt]="actorDetails()?.name" />
         } @else {
           <img class="responsive-img rounded-t-md" src="assets/images/noImageAvailable.jpg" alt="No image available" />
         }
       </div>
 
       <div class="flex flex-col bg-lighter-dark p-4 rounded-b-md">
-        <h3 class="font-semibold text-xl mb-4">Personal Information</h3>
+        <h3 class="font-semibold text-xl mb-4">Personal information</h3>
 
         @if(actorDetails()?.known_for_department) {
           <span class="text-lg mb-1">Known for department</span>
@@ -18,12 +18,12 @@
         }
 
         @if(actorDetails()?.birthday) {
-          <span class="text-lg mb-1">Birth Day</span>
+          <span class="text-lg mb-1">Birth day</span>
           <span class="text-base mb-3 text-darker-white">{{ actorDetails()?.birthday }}</span>
         }
 
         @if(actorDetails()?.deathday) {
-          <span class="text-lg mb-1">Death Day</span>
+          <span class="text-lg mb-1">Death day</span>
           <span class="text-base mb-3 text-darker-white">{{ actorDetails()?.deathday }}</span>
         }
 
