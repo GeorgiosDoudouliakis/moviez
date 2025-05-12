@@ -1,7 +1,6 @@
-import { Component, DestroyRef, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { PopularCelebritiesService } from "./services/popular-celebrities.service";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { catchError, tap, throwError } from "rxjs";
+import { catchError, take, tap, throwError } from "rxjs";
 import { PersonWithPath } from "@shared/interfaces/persons-response.interface";
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { SectionHeaderComponent } from "../../shared/components/section-header/section-header.component";
@@ -19,10 +18,7 @@ export class PopularCelebritiesComponent implements OnInit {
   public popularCelebrities: WritableSignal<PersonWithPath[]> = signal<PersonWithPath[]>([]);
   public loading: WritableSignal<boolean> = signal<boolean>(true);
 
-  constructor(
-      private readonly _popularCelebritiesService: PopularCelebritiesService,
-      private readonly _destroyRef: DestroyRef
-  ) {}
+  constructor(private readonly _popularCelebritiesService: PopularCelebritiesService) {}
 
   public ngOnInit(): void {
     this._popularCelebritiesService.popularCelebrities$().pipe(
@@ -32,7 +28,7 @@ export class PopularCelebritiesComponent implements OnInit {
           this.loading.set(false);
           return throwError(() => error);
         }),
-        takeUntilDestroyed(this._destroyRef)
+        take(1)
     ).subscribe();
   }
 }

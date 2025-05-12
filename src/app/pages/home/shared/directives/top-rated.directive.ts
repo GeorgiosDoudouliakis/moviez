@@ -1,7 +1,6 @@
-import { DestroyRef, Directive, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { Directive, OnInit, signal, WritableSignal } from '@angular/core';
 import { TopRatedService } from "../interfaces/top-rated-service.interface";
-import { catchError, tap, throwError } from "rxjs";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { catchError, take, tap, throwError } from "rxjs";
 import { Card } from '@shared/components/card/interface/card.interface';
 
 @Directive()
@@ -12,7 +11,6 @@ export abstract class TopRatedDirective implements OnInit {
     public abstract showAllPath: string;
     public abstract showAllLinkText: string;
     protected abstract service: TopRatedService;
-    private readonly _destroyRef = inject(DestroyRef);
 
     public ngOnInit(): void {
         this.service.topRatedItems$().pipe(
@@ -22,7 +20,7 @@ export abstract class TopRatedDirective implements OnInit {
                 this.loading.set(false);
                 return throwError(() => error);
             }),
-            takeUntilDestroyed(this._destroyRef)
+            take(1)
         ).subscribe();
     }
 }

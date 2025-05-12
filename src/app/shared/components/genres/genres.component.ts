@@ -1,9 +1,8 @@
-import { Component, DestroyRef, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
-import { catchError, tap, throwError } from 'rxjs';
+import { Component, input, InputSignal, OnInit, signal, WritableSignal } from '@angular/core';
+import { catchError, take, tap, throwError } from 'rxjs';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { Genre } from '@shared/components/genres/interface/genres-response.interface';
 import { GenresService } from '@shared/components/genres/service/genres.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-genres',
@@ -17,10 +16,7 @@ export class GenresComponent implements OnInit {
   public genresLoading: WritableSignal<boolean> = signal<boolean>(true);
   public genresType: InputSignal<"movie" | "tv"> = input.required<"movie" | "tv">();
 
-  constructor(
-    private readonly _genresService: GenresService,
-    private readonly _destroyRef: DestroyRef
-  ) {}
+  constructor(private readonly _genresService: GenresService) {}
 
   public ngOnInit(): void {
     this._genresService.genres$(this.genresType()).pipe(
@@ -30,7 +26,7 @@ export class GenresComponent implements OnInit {
         this.genresLoading.set(false);
         return throwError(() => error);
       }),
-      takeUntilDestroyed(this._destroyRef)
+      take(1)
     ).subscribe();
   }
 }
