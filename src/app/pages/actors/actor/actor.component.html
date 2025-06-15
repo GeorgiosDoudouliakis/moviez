@@ -10,7 +10,7 @@
       </div>
 
       <div class="flex flex-col bg-lighter-dark p-4 rounded-b-md">
-        <h3 class="font-semibold text-xl mb-4">Personal information</h3>
+        <h3 class="font-semibold text-xl mb-4">PERSONAL INFORMATION</h3>
 
         @if(actorDetails()?.known_for_department) {
           <span class="text-lg mb-1">Known for department</span>
@@ -50,12 +50,12 @@
       </div>
 
       @if(actorDetails()?.biography) {
-        <span class="inline-flex text-lg mb-4">Biography</span>
+        <span class="font-medium inline-flex text-lg mb-4">BIOGRAPHY</span>
         <p class="mb-6 text-darker-white">{{ actorDetails()?.biography }}</p>
       }
 
       @if(knownFor().length) {
-        <span class="inline-flex text-lg mb-4">Known for</span>
+        <span class="font-medium inline-flex text-lg mb-4">KNOWN FOR</span>
         <div class="known-for-container">
           @for(known of knownFor(); track known.id) {
             <app-card [card]="known"/>
