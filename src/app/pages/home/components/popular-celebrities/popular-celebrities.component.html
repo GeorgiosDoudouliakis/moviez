@@ -6,7 +6,11 @@
             @for(celebrity of popularCelebrities(); track celebrity.id) {
               <a class="inline-flex flex-col items-center celebrity" [routerLink]="celebrity.path">
                 <div class="mb-4 celebrity-img-container">
-                  <img class="rounded-full responsive-img" [src]="celebrity.profile_path" [alt]="celebrity.name" width="185" height="185">
+                  @if(celebrity.profile_path) {
+                    <img class="rounded-full responsive-img" [src]="celebrity.profile_path" [alt]="celebrity.name" width="185" height="185">
+                  } @else {
+                    <img class="rounded-full responsive-img" src="assets/images/noImageAvailable.jpg" alt="No image available" width="185" height="185">
+                  }
                 </div>
                 <span class="font-semibold text-white">{{ celebrity.name }}</span>
               </a>

@@ -8,7 +8,7 @@ export class PopularCelebritiesMapperService {
   public mapPersons(persons: Person[]): PersonWithPath[] {
     return persons.map((result: Person) => ({
       ...result,
-      profile_path: mapImagePath(185, result.profile_path),
+      profile_path: result.profile_path ? mapImagePath(185, result.profile_path) : "",
       path: `/actors/${EncodingUtilities.encodeIdNameParam(result.id, result.name)}`
     }))
   }
