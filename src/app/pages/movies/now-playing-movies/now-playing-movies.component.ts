@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { NowPlayingMoviesService } from './service/now-playing-movies.service';
-import { ListViewDirective } from '@shared/components/list-view/directive/list-view.directive';
-import { ListViewComponent } from '@shared/components/list-view/list-view.component';
 import { GenresComponent } from '@shared/components/genres/genres.component';
+import { ListViewComponent } from '@shared/components/list-view/list-view.component';
+import { MoviesDirective } from '../shared/directives/movies.directive';
+import { NowPlayingMoviesService } from './service/now-playing-movies.service';
 
 @Component({
   selector: 'app-now-playing-movies',
@@ -10,7 +10,7 @@ import { GenresComponent } from '@shared/components/genres/genres.component';
   templateUrl: '../shared/directives/movies.directive.html',
   providers: [NowPlayingMoviesService]
 })
-export class NowPlayingMoviesComponent extends ListViewDirective {
+export class NowPlayingMoviesComponent extends MoviesDirective {
   public title: string = "NOW PLAYING MOVIES";
   public readonly service: NowPlayingMoviesService = inject(NowPlayingMoviesService);
 }

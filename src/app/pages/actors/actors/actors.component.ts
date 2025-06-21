@@ -13,4 +13,8 @@ import { ActorsMapperService } from './services/actors-mapper.service';
 export class ActorsComponent extends ListViewDirective {
   public title: string = 'ACTORS';
   public readonly service: ActorsService = inject(ActorsService);
+
+  public onViewMore(): void {
+        
+  }
 }

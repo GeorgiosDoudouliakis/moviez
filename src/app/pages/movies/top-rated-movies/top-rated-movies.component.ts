@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { TopRatedMoviesService } from './service/top-rated-movies.service';
-import { ListViewDirective } from '@shared/components/list-view/directive/list-view.directive';
-import { ListViewComponent } from '@shared/components/list-view/list-view.component';
 import { GenresComponent } from '@shared/components/genres/genres.component';
+import { ListViewComponent } from '@shared/components/list-view/list-view.component';
+import { TopRatedMoviesService } from './service/top-rated-movies.service';
+import { MoviesDirective } from '../shared/directives/movies.directive';
 
 @Component({
   selector: 'app-top-rated-movies',
@@ -10,7 +10,7 @@ import { GenresComponent } from '@shared/components/genres/genres.component';
   templateUrl: '../shared/directives/movies.directive.html',
   providers: [TopRatedMoviesService]
 })
-export class TopRatedMoviesComponent extends ListViewDirective {
+export class TopRatedMoviesComponent extends MoviesDirective {
   public title: string = 'TOP RATED MOVIES';
   public readonly service: TopRatedMoviesService = inject(TopRatedMoviesService);
 }

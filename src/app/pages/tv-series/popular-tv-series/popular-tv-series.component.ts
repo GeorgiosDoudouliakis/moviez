@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { PopularTvSeriesService } from './service/popular-tv-series.service';
-import { ListViewDirective } from '@shared/components/list-view/directive/list-view.directive';
-import { ListViewComponent } from '@shared/components/list-view/list-view.component';
 import { GenresComponent } from '@shared/components/genres/genres.component';
+import { ListViewComponent } from '@shared/components/list-view/list-view.component';
+import { TvSeriesDirective } from '../shared/directives/tv-series.directive';
+import { PopularTvSeriesService } from './service/popular-tv-series.service';
 
 @Component({
   selector: 'app-popular-tv-series',
@@ -10,7 +10,7 @@ import { GenresComponent } from '@shared/components/genres/genres.component';
   templateUrl: '../shared/directives/tv-series.directive.html',
   providers: [PopularTvSeriesService]
 })
-export class PopularTvSeriesComponent extends ListViewDirective {
+export class PopularTvSeriesComponent extends TvSeriesDirective {
   public title: string = 'POPULAR TV SERIES';
   public readonly service: PopularTvSeriesService = inject(PopularTvSeriesService);
 }

@@ -1,10 +1,10 @@
-import { DestroyRef, Directive, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
-import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-series-actors-list-service.interface';
-import { BaseResponse } from '@shared/interfaces/base-response.interface';
+import { DestroyRef, Directive, inject, OnInit, signal, viewChild, ViewContainerRef, WritableSignal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
-import { LoadingState } from '../../../enums/loading-state.enum';
 import { Card } from '@shared/components/card/interface/card.interface';
+import { BaseResponse } from '@shared/interfaces/base-response.interface';
+import { MoviesTvSeriesActorsListService } from '@shared/interfaces/movies-tv-series-actors-list-service.interface';
+import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
+import { LoadingState } from '../../../enums/loading-state.enum';
 
 @Directive()
 export abstract class ListViewDirective implements OnInit {
@@ -13,10 +13,12 @@ export abstract class ListViewDirective implements OnInit {
   public showLoadMore: WritableSignal<boolean> = signal(false);
   private _currentPage: WritableSignal<number> = signal<number>(1);
   private _totalPages: WritableSignal<number> = signal<number>(1);
+  protected readonly vcr = viewChild('itemContainer', { read: ViewContainerRef });
   private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
   public abstract title: string;
   public abstract readonly service: MoviesTvSeriesActorsListService;
+  public abstract onViewMore(): void;
 
   private _itemsEvent: WritableSignal<number> = signal<number>(this._currentPage());
   private _items$: Observable<BaseResponse<Card>> = toObservable(this._itemsEvent).pipe(

@@ -4,7 +4,7 @@ import { MovieDetails } from './interfaces/movie-details.interface';
 import { catchError, take, tap, throwError } from 'rxjs';
 import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { MovieMapperService } from './services/movie-mapper.service';
-import {RouterLink} from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie',

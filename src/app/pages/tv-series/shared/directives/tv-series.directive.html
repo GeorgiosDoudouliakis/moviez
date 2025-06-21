@@ -1,3 +1,5 @@
 <app-list-view [title]="title" [items]="items()" [loadingState]="loadingState()" [showLoadMore]="showLoadMore()" (loadMore)="onLoadMore()">
   <app-genres filters genresType="tv"/>
 </app-list-view>
+
+<ng-container #itemContainer></ng-container>
